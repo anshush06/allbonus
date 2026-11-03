@@ -36,7 +36,7 @@ What you can edit:
 - **Apps** — per app: referral link & code, icon, bonus lines, tab (New/Other), position, stats row, steps, content sections, terms, FAQs, show/hide, SEO overrides.
 - **Categories**, **Pages** (About, Contact, Privacy, Disclaimer), **Blog**.
 
-Before the admin can save to GitHub, set `GITHUB_REPO` in `src/pages/admin/config.json.ts`.
+The admin saves to `anshush06/allbonus` (set in `src/pages/admin/config.json.ts`).
 
 ## How it fits together
 
@@ -75,7 +75,15 @@ title/description per page (auto-generated, overridable per entry), JSON-LD
 related-app internal links, `rel="sponsored nofollow"` on referral links.
 Lighthouse mobile: Performance 99, Accessibility 95–96, Best Practices 100, SEO 100.
 
-## Deploy (Cloudflare Pages)
+## Deploy
+
+**Live now (free):** https://anshush06.github.io/allbonus/ — GitHub Pages,
+repo `anshush06/allbonus`. `.github/workflows/deploy.yml` rebuilds and
+redeploys on every push to `main`, including saves from `/admin/`
+(~1–2 min). The workflow sets `SITE_URL`/`BASE_PATH` so links work under the
+`/allbonus/` sub-folder; always link internally through `withBase()`.
+
+### Moving to Cloudflare Pages + your own domain (later)
 
 1. Push this folder to a GitHub repo.
 2. Cloudflare dashboard → Workers & Pages → Create → Pages → connect the repo.

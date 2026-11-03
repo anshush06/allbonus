@@ -36,5 +36,17 @@ text, image, colour and referral link.
 contrast (3.99:1). Kept on request; changing *Header gradient end* to `#dc2626`
 in the admin fixes it.
 
-**Open items:** GitHub repo + `GITHUB_REPO` value, real referral links,
-real offer amounts, app icons, domain, Cloudflare Pages project.
+**Open items:** real referral links, real offer amounts, app icons, domain,
+Cloudflare Pages project (optional, once a domain is bought).
+
+## 2026-11-03 — Free deployment (GitHub Pages)
+
+**Purpose:** Put the site online for free so it can be reviewed.
+
+**What was done:** Added base-path support (`withBase()` / `absoluteUrl()` in
+`src/lib/content.ts`; every internal href goes through it) because GitHub
+Pages serves under `/allbonus/`. Added `.github/workflows/deploy.yml`.
+Created public repo `anshush06/allbonus`, enabled Pages (workflow build).
+
+**Live:** https://anshush06.github.io/allbonus/ — all routes 200, 404 page works,
+admin at `/admin/` (sign in with a GitHub token).
