@@ -1,0 +1,72 @@
+{
+  "name": "AllBonus",
+  "header_title": "AllBonus - Referral Bonus Apps",
+  "url": "https://allbonus.com",
+  "default_description": "AllBonus lists genuine referral and sign-up offers from popular Indian apps like Paytm, PhonePe, Google Pay, CRED and Groww, with simple steps to claim each bonus.",
+  "logo": "",
+  "og_image": "",
+  "theme": {
+    "header_from": "#fb3737",
+    "header_to": "#ff0000",
+    "accent": "#fb3737",
+    "button": "#000000",
+    "button_hover": "#00ffff",
+    "promo_from": "#000000",
+    "promo_to": "#00ffff"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "/",
+      "icon": "home"
+    },
+    {
+      "label": "About",
+      "href": "/about/",
+      "icon": "info"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact/",
+      "icon": "mail"
+    },
+    {
+      "label": "Disclaimer",
+      "href": "/disclaimer/",
+      "icon": "alert"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog/",
+      "icon": "book"
+    }
+  ],
+  "float_button": {
+    "enabled": true,
+    "label": "Join our Telegram",
+    "href": "https://t.me/your-channel",
+    "icon": "send"
+  },
+  "footer_links": [
+    {
+      "label": "About",
+      "href": "/about/"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact/"
+    },
+    {
+      "label": "Privacy Policy",
+      "href": "/privacy-policy/"
+    },
+    {
+      "label": "Disclaimer",
+      "href": "/disclaimer/"
+    }
+  ],
+  "disclosure": "AllBonus is an independent website. We may earn a referral reward when you sign up through our links, at no extra cost to you. We are not affiliated with, endorsed by, or sponsored by the brands listed. Offers are set by each app and can change at any time.",
+  "copyright": "© 2026 AllBonus. All rights reserved.",
+  "ga4_id": "",
+  "gsc_verification": ""
+}

@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AppIcon from '../../components/AppIcon.astro';
+import AppCard from '../../components/AppCard.astro';
+import ContentCard from '../../components/ContentCard.astro';
+import Faq from '../../components/Faq.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { getEntry } from 'astro:content';
+import { getSite, getHome, getApps, appPath, categoryPath, goPath, absoluteUrl, withBase, formatDate, type App } from '../../lib/content';
+import { breadcrumbSchema, faqSchema, softwareAppSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const apps = await getApps();
+  return apps.map((app) => ({ params: { category: app.data.category.id, app: app.id }, props: { app } }));
+}
+
+const { app } = Astro.props as { app: App };
+const site = await getSite();
+const home = await getHome();
+const category = await getEntry(app.data.category);
+if (!category) throw new Error(`App "${app.id}" points to missing category "${app.data.category.id}"`);
+const d = app.data;
+const path = appPath(app);
+const related = (await getApps()).filter((a) => a.data.category.id === category.id && a.id !== app.id).slice(0, 3);
+const crumbs = [
+  { name: 'Home', url: absoluteUrl('/') },
+  { name: category.data.name, url: absoluteUrl(categoryPath(category.id)) },
+  { name: d.name, url: absoluteUrl(path) },
+];
+const title = d.seo.title || `${d.name} Referral Bonus: ${d.bonus_line} | ${site.name}`;
+const description = d.seo.description || `${d.intro.slice(0, 150)}`;
+---
+<BaseLayout
+  title={title}
+  description={description}
+  path={path}
+  backHref="/"
+  schema={[
+    breadcrumbSchema(crumbs),
+    softwareAppSchema({ name: d.name, description: d.intro, url: absoluteUrl(path), category: category.data.name }),
+    ...(d.faqs.length ? [faqSchema(d.faqs)] : []),
+  ]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+
+  <div class="detail-head">
+    <AppIcon app={app} eager />
+    <h1 class="detail-name">{d.name}</h1>
+    <p class="detail-bonus">{d.bonus_line}</p>
+  </div>
+
+  {d.stats.length > 0 && (
+    <div class="stats" style={`grid-template-columns:repeat(${d.stats.length},minmax(0,1fr))`}>
+      {d.stats.map((s) => <div class="stat"><div class="stat-value">{s.value}</div><div class="stat-label">{s.label}</div></div>)}
+    </div>
+  )}
+
+  <a href={withBase(goPath(app))} class="btn-big" style="background:var(--header-to)" rel="sponsored nofollow" target="_blank">
+    <Icon name="download" size={18} />{d.download_label}
+  </a>
+  {site.float_button.enabled && (
+    <a href={withBase(site.float_button.href)} class="btn-big bg-[#0088cc]" target="_blank" rel="noopener">
+      <Icon name={site.float_button.icon} size={18} />{site.float_button.label}
+    </a>
+  )}
+  {d.referral_code && (
+    <div class="code-box">
+      <div><div class="text-xs text-slate-500">Referral code</div><div class="font-mono text-lg font-bold" id="ref-code">{d.referral_code}</div></div>
+      <button type="button" class="btn-dark" id="copy-code"><Icon name="copy" size={13} /><span>Copy</span></button>
+    </div>
+  )}
+  <p class="mt-3 text-center text-xs text-slate-500">Offer last checked: {formatDate(d.last_verified)}</p>
+
+  <ContentCard title={`About ${d.name}`} icon="info"><p>{d.intro}</p></ContentCard>
+
+  <ContentCard title={`How to claim the ${d.name} bonus`} icon="list">
+    <ol>{d.steps.map((s) => <li>{s}</li>)}</ol>
+  </ContentCard>
+
+  {d.sections.map((s) => <ContentCard title={s.title} icon={s.icon} body={s.body} />)}
+
+  {d.terms.length > 0 && (
+    <ContentCard title="Offer terms" icon="alert"><ul>{d.terms.map((t) => <li>{t}</li>)}</ul></ContentCard>
+  )}
+
+  <Faq title={`${d.name} referral FAQs`} items={d.faqs} />
+
+  {related.length > 0 && (
+    <section class="card">
+      <h2 class="card-title"><Icon name="grid" size={18} />More {category.data.name} apps</h2>
+      <div class="app-list">{related.map((a) => <AppCard app={a} buttonLabel={home.card_button_label} />)}</div>
+    </section>
+  )}
+</BaseLayout>
+
+<script>
+  document.getElementById('copy-code')?.addEventListener('click', async (e) => {
+    const code = document.getElementById('ref-code')?.textContent ?? '';
+    await navigator.clipboard.writeText(code);
+    const label = (e.currentTarget as HTMLElement).querySelector('span');
+    if (label) label.textContent = 'Copied';
+  });
+</script>

@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/content';
+---
+<BaseLayout title="Page not found" description="The page you are looking for does not exist." path="/404/" noindex>
+  <h1 class="main-title">Page not found</h1>
+  <p class="text-center text-slate-600">The offer may have ended or the link is wrong.</p>
+  <p class="mt-6 flex justify-center"><a href={withBase('/')} class="btn-dark">Back to all apps</a></p>
+</BaseLayout>

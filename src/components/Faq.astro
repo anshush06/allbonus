@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; items: { question: string; answer: string }[] }
+const { title, items } = Astro.props;
+---
+{items.length > 0 && (
+  <section class="card">
+    <h2 class="card-title"><Icon name="message" size={18} />{title}</h2>
+    {items.map((f) => (
+      <details class="faq-item">
+        <summary>{f.question}<Icon name="chevron-down" /></summary>
+        <p>{f.answer}</p>
+      </details>
+    ))}
+  </section>
+)}

@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Layout modelled on the reference site: a 620px centred column, gradient
+   header, icon nav row, numbered app list and white content cards.
+   Colours (--header-from, --accent, ...) are injected from site settings in
+   BaseLayout so they can be changed from the admin panel. */
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  body { @apply bg-slate-50 text-slate-900 font-sans text-sm leading-normal antialiased; }
+  summary { cursor: pointer; list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+}
+
+@layer components {
+  .shell { @apply mx-auto min-h-screen max-w-[620px] bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)]; }
+
+  /* Header */
+  .site-header { @apply flex items-center justify-between gap-3 px-4 py-3.5 text-white sm:px-5 sm:py-4;
+    background: linear-gradient(135deg, var(--header-from), var(--header-to)); }
+  .site-logo { @apply flex min-w-0 items-center gap-2; }
+  .site-logo img { @apply h-11 w-11 rounded-xl object-cover; }
+  .site-logo-mark { @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/20 text-lg font-black; }
+  .site-title { @apply truncate text-base font-black leading-tight sm:text-[22px]; }
+  .header-btn { @apply flex shrink-0 items-center gap-1.5 rounded-md bg-white/20 px-2.5 py-2 text-xs font-semibold text-white hover:bg-white/30; }
+
+  /* Icon navigation row */
+  .nav-row { @apply flex justify-between border-b border-slate-200 bg-white px-3 py-2.5 text-[11px] sm:px-5 sm:text-xs; }
+  .nav-item { @apply flex flex-col items-center gap-1 rounded-md px-1.5 py-1 font-medium text-slate-500 hover:bg-slate-100 sm:px-2; }
+  .nav-item:hover, .nav-item[aria-current="page"] { color: var(--accent); }
+  .nav-item[aria-current="page"] { @apply bg-indigo-50 font-semibold; }
+
+  /* Drawer menu (header menu button) */
+  .drawer { @apply border-b border-slate-200 bg-white px-4 py-2; }
+  .drawer a { @apply flex items-center justify-between rounded-md px-3 py-2.5 font-medium text-slate-700 hover:bg-slate-100; }
+
+  .main { @apply bg-slate-50 p-4 sm:p-5; }
+  .main-title { @apply mb-4 text-center text-[22px] font-bold sm:text-2xl; }
+  .section-title { @apply mb-4 text-center text-xl font-bold; }
+
+  .promo { @apply mb-4 rounded-[10px] px-3 py-2.5 text-[11px] font-medium leading-snug text-white;
+    background: linear-gradient(135deg, var(--promo-from), var(--promo-to)); }
+
+  /* Tabs */
+  .tabs { @apply mb-5 flex gap-2 rounded-lg bg-white p-1 shadow-sm; }
+  .tab { @apply flex flex-1 items-center justify-center gap-1.5 rounded-md px-4 py-2.5 text-sm font-semibold text-slate-500 hover:bg-slate-100 hover:text-slate-700; }
+  .tab[aria-selected="true"] { @apply text-white hover:text-white; background: var(--header-to); }
+
+  /* App cards */
+  .app-list { @apply flex flex-col gap-3; }
+  .app-card { @apply relative flex items-center gap-3.5 rounded-xl border border-slate-200 bg-white p-3.5 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md sm:gap-4 sm:p-4; }
+  .app-number { @apply absolute -left-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-semibold text-white; background: var(--accent); }
+  .app-icon { @apply flex h-[45px] w-[45px] shrink-0 items-center justify-center overflow-hidden rounded-[10px] text-center text-[9px] font-bold leading-none text-white sm:h-[50px] sm:w-[50px]; }
+  .app-icon img { @apply h-full w-full object-cover; }
+  .app-name { @apply mb-1.5 text-[15px] font-semibold sm:text-base; }
+  .app-line { @apply flex items-center gap-1.5 truncate text-[10px] font-medium leading-tight sm:text-[11px]; }
+  .app-line + .app-line { @apply mt-1; }
+  .app-line { color: #000; }
+  .app-line--bonus { color: var(--header-to); }
+
+  .btn-dark { @apply flex shrink-0 items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold text-white sm:px-4 sm:py-2.5 sm:text-[13px];
+    background: var(--button); }
+  .btn-dark:hover { background: var(--button-hover); }
+
+  /* White content cards */
+  .card { @apply mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm; }
+  .card-title { @apply mb-3 flex items-center gap-2 text-lg font-bold; }
+  .card-title svg { color: var(--accent); }
+
+  .faq-item { @apply border-b border-slate-200 py-3 last:border-0; }
+  .faq-item summary { @apply flex items-center justify-between gap-3 font-semibold; }
+  .faq-item[open] summary svg { @apply rotate-180; }
+  .faq-item p { @apply mt-2 text-slate-600; }
+
+  /* App detail page */
+  .detail-head { @apply flex flex-col items-center gap-3 pt-2 text-center; }
+  .detail-head .app-icon { @apply h-20 w-20 rounded-2xl text-xs; }
+  .detail-name { @apply text-2xl font-bold; }
+  .detail-bonus { @apply -mt-1 font-semibold; color: var(--header-to); }
+  .stats { @apply my-5 grid grid-cols-4 overflow-hidden rounded-xl border border-slate-200 bg-white; }
+  .stat { @apply border-r border-slate-200 px-1 py-3 text-center last:border-0; }
+  .stat-value { @apply text-base font-bold; }
+  .stat-label { @apply text-[11px] text-slate-500; }
+  .btn-big { @apply flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white shadow-md; }
+  .btn-big + .btn-big { @apply mt-3; }
+  .code-box { @apply mt-3 flex items-center justify-between gap-3 rounded-xl border-2 border-dashed border-slate-300 bg-white px-4 py-3; }
+
+  .disclosure { @apply border-t border-slate-200 bg-white px-5 pt-6 pb-20 text-center text-xs text-slate-500; }
+  .disclosure nav { @apply mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 font-medium text-slate-600; }
+
+  .float-btn { @apply fixed bottom-5 right-5 z-50 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#0088cc] text-white shadow-lg hover:scale-105; }
+}
+
+/* Markdown rendered from the admin (content cards, pages, posts). */
+.prose-content { @apply leading-relaxed text-slate-700; }
+.prose-content > :first-child { @apply mt-0; }
+.prose-content h2 { @apply mb-3 mt-6 text-xl font-bold text-slate-900; }
+.prose-content h3 { @apply mb-2 mt-5 text-base font-semibold text-slate-900; }
+.prose-content p { @apply my-3; }
+.prose-content ul { @apply my-3 list-disc space-y-2 pl-5; }
+.prose-content ol { @apply my-3 list-decimal space-y-2 pl-5; }
+.prose-content a { @apply font-medium underline decoration-2 underline-offset-[3px]; color: var(--accent); }
+.prose-content strong { @apply text-slate-900; }
+.prose-content table { @apply my-4 w-full border-collapse text-left text-sm; }
+.prose-content th, .prose-content td { @apply border border-slate-200 px-3 py-2; }
+.prose-content th { @apply bg-slate-50 font-semibold; }

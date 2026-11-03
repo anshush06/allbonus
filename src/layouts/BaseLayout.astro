@@ -1,0 +1,132 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { getSite, getCategories, categoryPath, absoluteUrl, withBase } from '../lib/content';
+import { websiteSchema } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Site-relative path of this page, e.g. "/payments/paytm/". */
+  path: string;
+  schema?: object[];
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  noindex?: boolean;
+  /** When set, the header shows a Back button to this URL instead of the menu. */
+  backHref?: string;
+}
+
+const { title, description, path, schema = [], ogType = 'website', ogImage, noindex = false, backHref } = Astro.props;
+const site = await getSite();
+const categories = await getCategories();
+const canonical = absoluteUrl(path);
+const image = ogImage || site.og_image;
+const t = site.theme;
+const themeVars = `--header-from:${t.header_from};--header-to:${t.header_to};--accent:${t.accent};--button:${t.button};--button-hover:${t.button_hover};--promo-from:${t.promo_from};--promo-to:${t.promo_to}`;
+const allSchema = [websiteSchema(site.name, absoluteUrl('/')), ...schema];
+const isCurrent = (href: string) => href === path;
+---
+<!doctype html>
+<html lang="en-IN" style={themeVars}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content={t.header_to} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_IN" />
+    {image && <meta property="og:image" content={absoluteUrl(image)} />}
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    {site.gsc_verification && <meta name="google-site-verification" content={site.gsc_verification} />}
+
+
+    {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    {site.ga4_id && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4_id}`}></script>
+        <script is:inline define:vars={{ id: site.ga4_id }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', id);
+        </script>
+      </>
+    )}
+  </head>
+  <body>
+    <div class="shell">
+      <header class="site-header">
+        <a href={withBase('/')} class="site-logo">
+          {site.logo
+            ? <img src={withBase(site.logo)} alt={`${site.name} logo`} width="44" height="44" />
+            : <span class="site-logo-mark" aria-hidden="true">{site.name.charAt(0)}</span>}
+          <span class="site-title">{site.header_title}</span>
+        </a>
+        {backHref
+          ? <a href={withBase(backHref)} class="header-btn"><Icon name="arrow-left" size={14} />Back</a>
+          : <button type="button" class="header-btn" id="menu-toggle" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><Icon name="menu" /></button>}
+      </header>
+
+      {!backHref && (
+        <nav id="drawer" class="drawer" hidden aria-label="Categories">
+          {categories.map((c) => <a href={withBase(categoryPath(c.id))}>{c.data.name}<span aria-hidden="true">›</span></a>)}
+          <a href={withBase('/blog/')}>Blog &amp; Guides<span aria-hidden="true">›</span></a>
+        </nav>
+      )}
+
+      <nav class="nav-row" aria-label="Main">
+        {site.nav.map((item) => (
+          <a href={withBase(item.href)} class="nav-item" aria-current={isCurrent(item.href) ? 'page' : undefined}
+            {...(item.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
+            <Icon name={item.icon} />
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </nav>
+
+      <main class="main">
+        <slot />
+      </main>
+
+      <footer class="disclosure">
+        <p>{site.disclosure}</p>
+        <nav aria-label="Footer">
+          {site.footer_links.map((l) => <a href={withBase(l.href)} class="hover:underline">{l.label}</a>)}
+        </nav>
+        <p class="mt-3">{site.copyright}</p>
+      </footer>
+    </div>
+
+    {site.float_button.enabled && (
+      <a href={withBase(site.float_button.href)} class="float-btn" target="_blank" rel="noopener" aria-label={site.float_button.label} title={site.float_button.label}>
+        <Icon name={site.float_button.icon} size={24} />
+      </a>
+    )}
+
+    <script>
+      const btn = document.getElementById('menu-toggle');
+      const drawer = document.getElementById('drawer');
+      btn?.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        if (drawer) drawer.hidden = open;
+      });
+    </script>
+  </body>
+</html>

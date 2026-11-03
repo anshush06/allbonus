@@ -1,0 +1,59 @@
+{
+  "seo": {
+    "title": "AllBonus — Referral & Sign-up Bonus Apps in India",
+    "description": "Download popular Indian apps like Paytm, PhonePe, Google Pay, CRED and Groww through referral links and claim the sign-up bonus. Simple steps, updated offers."
+  },
+  "main_title": "ALL REFERRAL BONUS APPS India",
+  "promo_text": "AllBonus brings together the official referral and sign-up offers from India's most popular payment, investing, bill-payment and food-delivery apps — Paytm, PhonePe, Google Pay, CRED, Groww, Upstox, Swiggy and more. Pick an app, sign up through our link and claim your welcome reward.",
+  "list_title": "Download NEW Bonus Apps",
+  "tabs": {
+    "new_label": "New Apps",
+    "new_icon": "star",
+    "other_label": "Other Apps",
+    "other_icon": "grid"
+  },
+  "card_button_label": "Download",
+  "sections": [
+    {
+      "title": "Featured Referral Apps",
+      "icon": "star",
+      "body": "AllBonus lists only legal, well-known apps from the official Play Store and App Store.\n\n### Paytm — payments, recharges and bills\nUse UPI, pay bills and recharge your phone. New users can unlock a welcome cashback offer after their first qualifying payment.\n\n### Groww — stocks and mutual funds\nOpen a free demat account and start investing. Referral rewards are credited after account opening.\n\n### CRED — credit card bill payments\nPay your credit card bills on time and collect CRED coins and rewards."
+    },
+    {
+      "title": "Tips to get your bonus",
+      "icon": "zap",
+      "body": "- **Install through our link:** referral tracking only works if you install from the referral link or enter the code.\n- **Complete KYC:** most apps credit the reward only after verification.\n- **Do the qualifying action:** usually a first UPI payment, bill payment or account opening.\n- **One account per person:** duplicate accounts usually lose the bonus."
+    },
+    {
+      "title": "Disclaimer",
+      "icon": "alert",
+      "body": "AllBonus is an independent platform. We don't own or operate any app listed here. Reward amounts and rules are set by each app and may change without notice — always check the terms inside the app. We never ask for your OTP, PIN or card details."
+    },
+    {
+      "title": "About AllBonus",
+      "icon": "info",
+      "body": "AllBonus was started to make referral offers simple. Instead of searching across many sites, you'll find each app's current offer, the exact steps to claim it and the terms in one place. We list only legal apps — no betting, gambling or real-money games."
+    }
+  ],
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Is AllBonus free to use?",
+        "answer": "Yes. You never pay us. When you sign up through our link, the app may reward us as well as you."
+      },
+      {
+        "question": "Are these apps safe and legal?",
+        "answer": "We list only well-known apps available on the official Google Play Store and Apple App Store. We do not list betting or real-money gaming apps."
+      },
+      {
+        "question": "Why didn't I receive my bonus?",
+        "answer": "Most bonuses need a qualifying action such as KYC or a first transaction, and are for new users only. Check the terms on the app's page."
+      },
+      {
+        "question": "Are you affiliated with these apps?",
+        "answer": "No. AllBonus is an independent website and is not endorsed by any brand listed."
+      }
+    ]
+  }
+}

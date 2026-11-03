@@ -1,0 +1,40 @@
+# Implementation log
+
+## 2026-11-03 — Initial build
+
+**Purpose:** A fast, SEO-friendly website that promotes legal Indian apps
+(Paytm, PhonePe, Google Pay, CRED, Groww, Upstox, Swiggy) through referral
+links, with a layout like allnewyonoapps.com and an admin panel to edit every
+text, image, colour and referral link.
+
+**What was done**
+
+1. **Stack** — Astro 7.4 + Tailwind 4 + @astrojs/sitemap, Node 22 via nvm
+   (user-level; system default left on Node 20; `.nvmrc` pins 22 here).
+2. **Design** — Google Stitch project `5200100925793553032`. First screen
+   (indigo fintech) was rejected by the user; second screen follows the
+   reference site's layout and colours. Implemented in `src/styles/global.css`
+   with colours driven by `site.json → theme`.
+   Deliberately *not* copied from the reference: fake ratings/votes, keyword
+   "Queries" cloud, fake "SEO 90%" badge, gambling content.
+3. **Content model** — `src/content.config.ts` (zod-validated): site, home,
+   categories, apps, pages, posts. Starter content for 7 apps, 4 categories,
+   4 legal pages, 1 blog post. Bonus amounts and referral URLs are placeholders.
+4. **Pages** — home (tabs), category, app detail, `/go/` referral redirect,
+   blog, static pages, 404, robots.txt.
+5. **SEO** — canonical/OG/Twitter, JSON-LD builders in `src/lib/schema.ts`,
+   breadcrumbs, sitemap (excludes /go/ and 404).
+6. **Admin** — Sveltia CMS 0.257.0 at `/admin/`; config generated from code in
+   `src/pages/admin/config.json.ts` so icon dropdowns match the site.
+7. **Performance** — inline SVG icons (no icon font), self-hosted Inter
+   (Google Fonts link was render-blocking: perf 89 → 99).
+
+**Verified:** `astro check` 0 errors; build 26 pages; Lighthouse mobile
+99 / 95–96 / 100 / 100; admin loads config (local repo, GitHub, token sign-in).
+
+**Known trade-off:** the reference's `#ff0000` red on white fails WCAG AA
+contrast (3.99:1). Kept on request; changing *Header gradient end* to `#dc2626`
+in the admin fixes it.
+
+**Open items:** GitHub repo + `GITHUB_REPO` value, real referral links,
+real offer amounts, app icons, domain, Cloudflare Pages project.

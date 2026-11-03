@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppCard from '../components/AppCard.astro';
+import ContentCard from '../components/ContentCard.astro';
+import Faq from '../components/Faq.astro';
+import Icon from '../components/Icon.astro';
+import { getSite, getHome, getApps, assertTopLevelSlugsUnique } from '../lib/content';
+import { faqSchema } from '../lib/schema';
+
+await assertTopLevelSlugsUnique();
+const site = await getSite();
+const home = await getHome();
+const apps = await getApps();
+const tabs = [
+  { key: 'new', label: home.tabs.new_label, icon: home.tabs.new_icon, apps: apps.filter((a) => a.data.tab === 'new') },
+  { key: 'other', label: home.tabs.other_label, icon: home.tabs.other_icon, apps: apps.filter((a) => a.data.tab === 'other') },
+] as const;
+---
+<BaseLayout
+  title={home.seo.title || site.name}
+  description={home.seo.description || site.default_description}
+  path="/"
+  schema={home.faq.items.length ? [faqSchema(home.faq.items)] : []}
+>
+  <h1 class="main-title">{home.main_title}</h1>
+  <p class="promo">{home.promo_text}</p>
+
+  <section aria-labelledby="list-title">
+    <h2 id="list-title" class="section-title">{home.list_title}</h2>
+    <div class="tabs" role="tablist">
+      {tabs.map((t, i) => (
+        <button type="button" class="tab" role="tab" id={`tab-${t.key}`} aria-controls={`panel-${t.key}`} aria-selected={i === 0 ? 'true' : 'false'}>
+          <Icon name={t.icon} size={14} />{t.label}
+        </button>
+      ))}
+    </div>
+    {tabs.map((t, i) => (
+      <div class="app-list" role="tabpanel" id={`panel-${t.key}`} aria-labelledby={`tab-${t.key}`} hidden={i !== 0}>
+        {t.apps.map((app, n) => <AppCard app={app} number={n + 1} buttonLabel={home.card_button_label} />)}
+        {t.apps.length === 0 && <p class="py-8 text-center text-slate-500">No apps in this tab yet.</p>}
+      </div>
+    ))}
+  </section>
+
+  {home.sections.map((s) => <ContentCard title={s.title} icon={s.icon} body={s.body} />)}
+  <Faq title={home.faq.title} items={home.faq.items} />
+</BaseLayout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+  tabs.forEach((tab) =>
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        const active = t === tab;
+        t.setAttribute('aria-selected', String(active));
+        document.getElementById(t.getAttribute('aria-controls')!)!.hidden = !active;
+      });
+    }),
+  );
+</script>

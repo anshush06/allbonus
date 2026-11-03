@@ -1,0 +1,11 @@
+---
+import Icon from './Icon.astro';
+import { md } from '../lib/markdown';
+import type { IconName } from '../lib/icons';
+interface Props { title: string; icon?: IconName; body?: string }
+const { title, icon = 'info', body } = Astro.props;
+---
+<section class="card">
+  <h2 class="card-title"><Icon name={icon} size={18} />{title}</h2>
+  {body ? <div class="prose-content" set:html={md(body)} /> : <div class="prose-content"><slot /></div>}
+</section>

@@ -1,0 +1,64 @@
+{
+  "name": "Google Pay",
+  "category": "payments",
+  "tab": "new",
+  "order": 3,
+  "published": true,
+  "icon": "",
+  "icon_color": "#1a73e8",
+  "icon_text": "GPAY",
+  "bonus_line": "Rewards on first payment",
+  "info_line": "Scratch card rewards",
+  "referral_url": "https://example.com/referral/google-pay",
+  "referral_code": "",
+  "download_label": "DOWNLOAD GOOGLE PAY APP",
+  "stats": [
+    {
+      "value": "Free",
+      "label": "Price"
+    },
+    {
+      "value": "Bonus",
+      "label": "On sign-up"
+    },
+    {
+      "value": "Android",
+      "label": "& iOS"
+    },
+    {
+      "value": "New",
+      "label": "Users only"
+    }
+  ],
+  "intro": "Google's UPI app for sending money, paying bills and scanning QR codes. New users who sign up through our referral link can claim the current welcome offer by completing the steps below.",
+  "steps": [
+    "Tap the Download button above to open the official Google Pay page.",
+    "Install Google Pay and sign up with your mobile number.",
+    "Enter the referral code if asked, and complete KYC.",
+    "Complete the qualifying action shown in the app to unlock your reward."
+  ],
+  "sections": [
+    {
+      "title": "Why use Google Pay?",
+      "icon": "star",
+      "body": "- Official app on Google Play and the App Store\n- Scratch card rewards\n- Trusted by millions of users in India"
+    }
+  ],
+  "terms": [
+    "Offer valid for new users only.",
+    "Reward amount and eligibility are decided by Google Pay and may change without notice.",
+    "Check the latest terms inside the app before signing up."
+  ],
+  "faqs": [
+    {
+      "question": "Who can claim the Google Pay referral bonus?",
+      "answer": "New users who sign up through a referral link and complete the qualifying step shown in the app."
+    },
+    {
+      "question": "How long does the reward take?",
+      "answer": "Most rewards are credited within a few days of completing the qualifying step."
+    }
+  ],
+  "last_verified": "2026-11-03",
+  "seo": {}
+}

@@ -1,0 +1,9 @@
+---
+import { withBase, type App } from '../lib/content';
+interface Props { app: App; eager?: boolean }
+const { app, eager = false } = Astro.props;
+const { icon, icon_color, icon_text, name } = app.data;
+---
+{icon
+  ? <div class="app-icon"><img src={withBase(icon)} alt={`${name} app icon`} width="80" height="80" loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>
+  : <div class="app-icon" style={`background:${icon_color}`} aria-hidden="true">{icon_text}</div>}

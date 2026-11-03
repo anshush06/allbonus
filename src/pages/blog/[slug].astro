@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AppCard from '../../components/AppCard.astro';
+import Icon from '../../components/Icon.astro';
+import { getEntries, render } from 'astro:content';
+import { getSite, getHome, getPosts, postPath, absoluteUrl, withBase, formatDate, type Post } from '../../lib/content';
+import { articleSchema, breadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  return (await getPosts()).map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props as { post: Post };
+const site = await getSite();
+const home = await getHome();
+const d = post.data;
+const path = postPath(post);
+const { Content } = await render(post);
+const related = (await getEntries(d.related_apps)).filter((a) => a.data.published);
+const crumbs = [
+  { name: 'Home', url: absoluteUrl('/') },
+  { name: 'Blog', url: absoluteUrl('/blog/') },
+  { name: d.title, url: absoluteUrl(path) },
+];
+---
+<BaseLayout
+  title={`${d.title} | ${site.name}`}
+  description={d.description}
+  path={path}
+  ogType="article"
+  ogImage={d.cover}
+  schema={[
+    breadcrumbSchema(crumbs),
+    articleSchema({ headline: d.title, description: d.description, url: absoluteUrl(path), datePublished: d.date, dateModified: d.updated, publisher: site.name, image: d.cover ? absoluteUrl(d.cover) : undefined }),
+  ]}
+>
+  <Breadcrumbs crumbs={crumbs} />
+  <article class="card mt-0">
+    <h1 class="text-2xl font-bold leading-tight">{d.title}</h1>
+    <p class="mt-2 text-xs text-slate-500">
+      Published {formatDate(d.date)}{d.updated && ` · Updated ${formatDate(d.updated)}`}
+    </p>
+    {d.cover && <img src={withBase(d.cover)} alt="" class="mt-4 w-full rounded-lg" loading="eager" />}
+    <div class="prose-content mt-4"><Content /></div>
+  </article>
+  {related.length > 0 && (
+    <section class="card">
+      <h2 class="card-title"><Icon name="grid" size={18} />Apps in this guide</h2>
+      <div class="app-list">{related.map((a) => <AppCard app={a} buttonLabel={home.card_button_label} />)}</div>
+    </section>
+  )}
+</BaseLayout>

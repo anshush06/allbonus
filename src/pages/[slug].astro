@@ -1,0 +1,59 @@
+---
+// Top-level /<slug>/ pages: category listings and static pages (About, Contact…).
+// Both live in one route because they share the URL namespace; see
+// assertTopLevelSlugsUnique() in lib/content.ts.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppCard from '../components/AppCard.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { render } from 'astro:content';
+import { getSite, getHome, getApps, getCategories, getPages, categoryPath, pagePath, absoluteUrl, type Category, type Page, type App } from '../lib/content';
+import { breadcrumbSchema } from '../lib/schema';
+
+type Props = { kind: 'category'; category: Category; apps: App[] } | { kind: 'page'; page: Page };
+
+export async function getStaticPaths() {
+  const apps = await getApps();
+  const categories = (await getCategories()).map((category) => ({
+    params: { slug: category.id },
+    props: { kind: 'category' as const, category, apps: apps.filter((a) => a.data.category.id === category.id) },
+  }));
+  const pages = (await getPages()).map((page) => ({ params: { slug: page.id }, props: { kind: 'page' as const, page } }));
+  return [...categories, ...pages];
+}
+
+const props = Astro.props as Props;
+const site = await getSite();
+const home = await getHome();
+const homeCrumb = { name: 'Home', url: absoluteUrl('/') };
+const view =
+  props.kind === 'category'
+    ? {
+        path: categoryPath(props.category.id),
+        name: props.category.data.name,
+        title: props.category.data.seo.title || `${props.category.data.name} Apps with Referral Bonus | ${site.name}`,
+        description: props.category.data.seo.description || props.category.data.description,
+      }
+    : {
+        path: pagePath(props.page),
+        name: props.page.data.title,
+        title: `${props.page.data.title} | ${site.name}`,
+        description: props.page.data.description,
+      };
+const crumbs = [homeCrumb, { name: view.name, url: absoluteUrl(view.path) }];
+const Content = props.kind === 'page' ? (await render(props.page)).Content : null;
+---
+<BaseLayout title={view.title} description={view.description} path={view.path} schema={[breadcrumbSchema(crumbs)]}>
+  <Breadcrumbs crumbs={crumbs} />
+  <h1 class="main-title">{view.name}</h1>
+  {props.kind === 'category' ? (
+    <>
+      <p class="promo">{props.category.data.description}</p>
+      <div class="app-list">
+        {props.apps.map((app, n) => <AppCard app={app} number={n + 1} buttonLabel={home.card_button_label} />)}
+      </div>
+      {props.apps.length === 0 && <p class="py-8 text-center text-slate-500">No apps in this category yet.</p>}
+    </>
+  ) : (
+    <article class="card mt-0 prose-content">{Content && <Content />}</article>
+  )}
+</BaseLayout>

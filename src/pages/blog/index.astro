@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getSite, getPosts, postPath, absoluteUrl, withBase, formatDate } from '../../lib/content';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const site = await getSite();
+const posts = await getPosts();
+const crumbs = [{ name: 'Home', url: absoluteUrl('/') }, { name: 'Blog', url: absoluteUrl('/blog/') }];
+---
+<BaseLayout title={`Referral Bonus Guides & Tips | ${site.name}`} description={`Guides on claiming referral and sign-up bonuses on Indian apps, from ${site.name}.`} path="/blog/" schema={[breadcrumbSchema(crumbs)]}>
+  <Breadcrumbs crumbs={crumbs} />
+  <h1 class="main-title">Blog &amp; Guides</h1>
+  <div class="app-list">
+    {posts.map((p) => (
+      <a href={withBase(postPath(p))} class="card mt-0 block hover:border-slate-300">
+        <h2 class="text-base font-semibold">{p.data.title}</h2>
+        <p class="mt-1 text-slate-600">{p.data.description}</p>
+        <p class="mt-2 text-xs text-slate-500">{formatDate(p.data.date)}</p>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
