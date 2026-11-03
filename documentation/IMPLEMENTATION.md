@@ -50,3 +50,21 @@ Created public repo `anshush06/allbonus`, enabled Pages (workflow build).
 
 **Live:** https://anshush06.github.io/allbonus/ — all routes 200, 404 page works,
 admin at `/admin/` (sign in with a GitHub token).
+
+## 2026-11-03 — Moved to Cloudflare Pages
+
+**Purpose:** GitHub Pages served the site under `/allbonus/`, where robots.txt
+is not honoured and the URL is weak for SEO. Cloudflare Pages serves it at the
+root of `allbonus.pages.dev` with a real robots.txt and custom headers.
+
+**What was done:** Workflow switched to wrangler (`pages project create` on
+first run, then `pages deploy dist`); `site.json → url` set to
+`https://allbonus.pages.dev`; added `public/_headers`; `cred.txt` added to
+`.gitignore`. GitHub Pages disabled to avoid duplicate content.
+
+**Note:** the very first run failed with wrangler's "reading
+'compatibility_date'" because the deploy ran seconds after the project was
+created; a re-run succeeded. Later runs skip creation, so it does not recur.
+
+**Verified:** all routes 200, unknown path 404, canonical/sitemap/robots use
+`https://allbonus.pages.dev`, `/admin/` sends `X-Robots-Tag: noindex`.

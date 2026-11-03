@@ -77,19 +77,28 @@ Lighthouse mobile: Performance 99, Accessibility 95–96, Best Practices 100, SE
 
 ## Deploy
 
-**Live now (free):** https://anshush06.github.io/allbonus/ — GitHub Pages,
-repo `anshush06/allbonus`. `.github/workflows/deploy.yml` rebuilds and
-redeploys on every push to `main`, including saves from `/admin/`
-(~1–2 min). The workflow sets `SITE_URL`/`BASE_PATH` so links work under the
-`/allbonus/` sub-folder; always link internally through `withBase()`.
+**Live (free):** https://allbonus.pages.dev — Cloudflare Pages project `allbonus`,
+repo `anshush06/allbonus`. `.github/workflows/deploy.yml` builds and deploys
+with wrangler on every push to `main`, including saves from `/admin/` (~1 min).
+Needs repo secrets `CLOUDFLARE_API_TOKEN` (Account → Cloudflare Pages → Edit)
+and `CLOUDFLARE_ACCOUNT_ID`. `public/_headers` sets long caching on `/_astro/*`
+and `noindex` on `/admin/*`.
 
-### Moving to Cloudflare Pages + your own domain (later)
+The site is served at the domain root; `withBase()` still supports a sub-folder
+via the `BASE_PATH` env var if ever needed.
 
-1. Push this folder to a GitHub repo.
-2. Cloudflare dashboard → Workers & Pages → Create → Pages → connect the repo.
-3. Build command `npm run build`, output directory `dist`, env var `NODE_VERSION=22`.
-4. Add your custom domain, then update **Site Settings → Website address**.
-5. Add the site to Google Search Console and submit `/sitemap-index.xml`.
+### Own domain later
+
+Cloudflare dashboard → Workers & Pages → `allbonus` → Custom domains → add it,
+then update **Site Settings → Website address** and re-submit the sitemap in
+Search Console.
+
+### Google Search Console
+
+1. Add property → URL prefix → `https://allbonus.pages.dev/`.
+2. HTML tag method → paste only the `content` value into **Site Settings →
+   Google Search Console verification code** → save, wait for the deploy, Verify.
+3. Sitemaps → submit `sitemap-index.xml`.
 
 ## Before going live
 
