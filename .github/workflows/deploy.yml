@@ -27,6 +27,8 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history: sitemap lastmod = last commit of each page's content
       - uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc

@@ -175,3 +175,25 @@ admin config, and the saved nulls were removed. RCA is on the issue.
 - No duplicate titles; all titles are 60 characters or less and all
   descriptions 155 or less.
 - No horizontal scroll on mobile.
+
+## 2026-11-04 — Sitemap with real last-modified dates
+
+**Purpose:** Tell Google which pages changed, so edited pages are recrawled
+sooner without manual "Request indexing".
+
+**What was done:**
+- Replaced `@astrojs/sitemap` with `src/lib/sitemap.ts` plus endpoints
+  `sitemap-index.xml.ts` and `sitemap-0.xml.ts`. The URLs are unchanged, so
+  the existing Search Console submission and robots.txt still apply.
+- Each page's `<lastmod>` is the newest of: the last git commit of the content
+  file(s) it is built from (every admin save is a commit), and editor dates
+  (an app's `last_verified`, a post's `updated` or `date`).
+- Home and category pages also take the newest date of the apps they list.
+- The deploy workflow checks out full history (`fetch-depth: 0`). The build
+  fails if the checkout is shallow, because a shallow clone would mark every
+  page as changed on every deploy.
+
+**Verified:**
+- `astro check` reports 0 errors.
+- The sitemap lists the same 15 URLs as before, each with its own date
+  (e.g. About on 3 Nov, Google Pay at the time of the icon upload).
