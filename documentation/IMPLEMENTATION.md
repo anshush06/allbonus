@@ -101,3 +101,21 @@ GitHub.
 - One shared admin account.
 - No lockout after repeated attempts; only the delay plus a strong password.
 - After login the token is stored in the editor's browser until they sign out.
+
+## 2026-11-04 — Desktop layout like the reference
+
+**Purpose:** On a desktop browser the site should look like allnewyonoapps.com
+(a wide centred page), while phones keep the mobile layout.
+
+**What was done:**
+- `.shell` max width raised from 620px to 1280px, the reference's desktop
+  width. On phones the column was already full width, so mobile is unchanged.
+- Fixed the bonus and info lines on app cards. The text sat directly in a
+  flex row, so the icon was squashed and the text was clipped without "…".
+  The text is now wrapped in `<span class="truncate">` and the icon is set to
+  `shrink-0`.
+
+**Verified:**
+- Screenshots at 1440px and 390px of home, category, app and about pages.
+- No horizontal scroll on any of those pages.
+- `astro check` reports 0 errors.

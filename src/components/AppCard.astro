@@ -11,8 +11,8 @@ const href = withBase(appPath(app));
   <a href={href} tabindex="-1" aria-hidden="true"><AppIcon app={app} /></a>
   <div class="min-w-0 flex-1">
     <h3 class="app-name"><a href={href}>{app.data.name}</a></h3>
-    <div class="app-line app-line--bonus"><Icon name="gift" size={12} />{app.data.bonus_line}</div>
-    <div class="app-line"><Icon name="wallet" size={12} />{app.data.info_line}</div>
+    <div class="app-line app-line--bonus"><Icon name="gift" size={12} /><span class="truncate">{app.data.bonus_line}</span></div>
+    <div class="app-line"><Icon name="wallet" size={12} /><span class="truncate">{app.data.info_line}</span></div>
   </div>
   <a href={href} class="btn-dark" aria-label={`${buttonLabel} ${app.data.name}`}>
     <Icon name="download" size={13} />{buttonLabel}
