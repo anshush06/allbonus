@@ -135,3 +135,43 @@ the app page. The duplicate icon link was removed.
 **Verified:** Playwright at 1440px and 390px. The button opens a new tab that
 ends on the referral URL. Clicks on the blank area, icon, bonus text and
 number badge all open `/payments/paytm/`.
+
+## 2026-11-04 — Admin-save fix (#1) and SEO/content pass
+
+**Admin saves were failing (issue #1, PR #2):** Sveltia wrote `"seo": null`
+for an empty optional SEO box, and the schema rejected it, so six admin saves
+never deployed. Fixed with `output.omit_empty_optional_fields: true` in the
+admin config, and the saved nulls were removed. RCA is on the issue.
+
+**Content and SEO:**
+- **Google Pay / CRED:** the CRED entry had been renamed "Google Pay" with a
+  Google Pay invite link, but its URL, icon, category and text were still
+  CRED. Restored the Google Pay app (Payments, `/payments/google-pay/`) with
+  that invite link and removed CRED.
+- **Empty categories hidden:** `getCategories()` now returns only categories
+  with at least one published app, so Food Delivery (no apps after Swiggy was
+  removed) gets no page, menu link or sitemap entry.
+- **Title and description helpers** in `lib/content.ts`:
+  - `pageTitle()` drops the " | AllBonus" suffix when it would push a title
+    past about 60 characters or repeat the site name.
+  - `metaDescription()` cuts text at a word boundary at about 155 characters.
+  - Both are used by the app, category, page and blog routes.
+- **App pages rewritten** (Paytm, Google Pay, Groww, Upstox): 850–990 words
+  each, all unique. Each has features, requirements, a step-by-step guide,
+  fixes for a missing reward, a safety section, terms and 6 FAQs. No offer
+  amounts were invented; bonus lines are still the admin's to set.
+- **New blog posts:** `referral-bonus-not-received` and
+  `open-demat-account-online` (about 900 and 735 words). The existing post's
+  title was shortened.
+- **Copy updates:** the homepage "Featured" section and the category
+  descriptions were updated.
+- **GA4 `download_click` event:** fired by any link with `data-track-app`
+  (card and app-page Download buttons), with params `app_name` and
+  `link_location`. Tested with a dummy GA4 ID: Download buttons fire the event
+  and card clicks don't. Nothing happens until a GA4 ID is set.
+
+**Verified:**
+- `astro check` reports 0 errors; 20 pages built.
+- No duplicate titles; all titles are 60 characters or less and all
+  descriptions 155 or less.
+- No horizontal scroll on mobile.

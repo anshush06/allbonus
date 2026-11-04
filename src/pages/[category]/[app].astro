@@ -7,7 +7,7 @@ import Faq from '../../components/Faq.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Icon from '../../components/Icon.astro';
 import { getEntry } from 'astro:content';
-import { getSite, getHome, getApps, appPath, categoryPath, goPath, absoluteUrl, withBase, formatDate, type App } from '../../lib/content';
+import { getSite, getHome, getApps, appPath, categoryPath, goPath, absoluteUrl, withBase, formatDate, pageTitle, metaDescription, type App } from '../../lib/content';
 import { breadcrumbSchema, faqSchema, softwareAppSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
@@ -28,8 +28,8 @@ const crumbs = [
   { name: category.data.name, url: absoluteUrl(categoryPath(category.id)) },
   { name: d.name, url: absoluteUrl(path) },
 ];
-const title = d.seo.title || `${d.name} Referral Bonus: ${d.bonus_line} | ${site.name}`;
-const description = d.seo.description || `${d.intro.slice(0, 150)}`;
+const title = d.seo.title || pageTitle(`${d.name} Referral Bonus: ${d.bonus_line}`, site.name);
+const description = d.seo.description || metaDescription(d.intro);
 ---
 <BaseLayout
   title={title}
@@ -56,7 +56,8 @@ const description = d.seo.description || `${d.intro.slice(0, 150)}`;
     </div>
   )}
 
-  <a href={withBase(goPath(app))} class="btn-big" style="background:var(--header-to)" rel="sponsored nofollow" target="_blank">
+  <a href={withBase(goPath(app))} class="btn-big" style="background:var(--header-to)" rel="sponsored nofollow noopener" target="_blank"
+    data-track-app={d.name} data-track-location="app_page">
     <Icon name="download" size={18} />{d.download_label}
   </a>
   {site.float_button.enabled && (

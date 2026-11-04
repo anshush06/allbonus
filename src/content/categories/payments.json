@@ -1,1 +1,6 @@
-{ "name": "Payments", "description": "UPI and wallet apps with sign-up and referral cashback offers.", "order": 1, "seo": {} }
+{
+  "name": "Payments",
+  "description": "UPI and payment apps like Paytm and Google Pay with new-user referral rewards — how each offer works, what you need and how to claim it.",
+  "order": 1,
+  "seo": {}
+}

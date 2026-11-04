@@ -65,6 +65,12 @@ const isCurrent = (href: string) => href === path;
           function gtag() { dataLayer.push(arguments); }
           gtag('js', new Date());
           gtag('config', id);
+          // One "download_click" event per referral button press (any link with
+          // data-track-app). Report by app: GA4 custom dimension "app_name".
+          document.addEventListener('click', (e) => {
+            const link = e.target instanceof Element && e.target.closest('a[data-track-app]');
+            if (link) gtag('event', 'download_click', { app_name: link.dataset.trackApp, link_location: link.dataset.trackLocation });
+          });
         </script>
       </>
     )}

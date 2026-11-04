@@ -1,6 +1,6 @@
 # AllBonus — project plan
 
-Last updated: 4 Nov 2026. This is the single place for **what was agreed, what
+Last updated: 4 Nov 2026 (evening). This is the single place for **what was agreed, what
 is done, and what is next**. Technical change history is in
 [IMPLEMENTATION.md](IMPLEMENTATION.md).
 
@@ -63,8 +63,9 @@ links. No gambling or rummy apps.
 | 3 | Connect the domain; move canonical, sitemap and admin login to it; **301 redirect** `allbonus.pages.dev` to it | Claude | waiting on #2 |
 | 4 | Add the new domain to Search Console (verification code, then submit `sitemap-index.xml`) | You + Claude | waiting on #3 |
 | 5 | Create GA4 property, send the Measurement ID (`G-…`) | You | ⏳ |
-| 6 | Add GA4 visitor stats plus a **`download_click` event per app** (shows clicks per app in GA4 → Reports → Engagement → Events) | Claude | waiting on #5 |
-| 7 | Replace placeholders in Admin → Apps: **real referral links**, current bonus amounts, app icons, Telegram link, contact email | You | ⏳ before promoting |
+| 6 | Add GA4 visitor stats plus a **`download_click` event per app** | Claude | ✅ code done — activates when the GA4 ID is added in Site Settings; then register custom dimension `app_name` in GA4 |
+| 7 | Replace placeholders in Admin → Apps: **real referral links** (Upstox still placeholder), current bonus amounts (all bonus lines are still placeholders), app icons, Telegram link, contact email | You | ⏳ before promoting |
+| 7a | Unique 800+ word content for each app page; 2 long-tail blog posts; title/description lengths fixed | Claude | ✅ done 4 Nov |
 | 8 | Search Console → URL Inspection → **Request indexing** for each app page (about 10/day), on the **new domain** | You | after #3 and #7 |
 | 9 | Promote: Telegram, WhatsApp, YouTube, Instagram, Quora answers (links from other places help ranking) | You | ongoing |
 | 10 | Optional: Cloudflare Web Analytics (free visitor counts, no code) | You | optional |
