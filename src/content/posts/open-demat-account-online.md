@@ -1,6 +1,6 @@
 ---
 title: How to Open a Demat Account Online in India (Step by Step)
-description: Open a demat account from your phone in about 15 minutes: documents needed, each KYC step, activation time and mistakes that cause delays.
+description: "Open a demat account from your phone in about 15 minutes: documents needed, each KYC step, activation time and mistakes that cause delays."
 date: 2026-11-04
 related_apps:
   - groww

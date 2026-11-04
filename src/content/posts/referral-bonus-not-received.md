@@ -1,6 +1,6 @@
 ---
 title: Referral Bonus Not Received? 10 Reasons and How to Fix It
-description: Signed up through a referral link but got no reward? The 10 most common reasons on Paytm, Google Pay, Groww and Upstox, and how to fix each one.
+description: "Signed up through a referral link but got no reward? The 10 most common reasons on Paytm, Google Pay, Groww and Upstox, and how to fix each one."
 date: 2026-11-04
 related_apps:
   - paytm
