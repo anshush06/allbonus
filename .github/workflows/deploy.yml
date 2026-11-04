@@ -1,6 +1,7 @@
 # Builds the site and publishes it to Cloudflare Pages on every push to main
 # (including saves made from the /admin/ panel).
-# Needs repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+# Needs repo secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID, plus the admin
+# login secrets ADMIN_EMAIL, ADMIN_PASSWORD, ADMIN_GITHUB_TOKEN (see functions/api/auth.ts).
 name: Deploy to Cloudflare Pages
 
 on:
@@ -37,5 +38,20 @@ jobs:
           if ! npx wrangler pages project list | grep -qw "$PROJECT"; then
             npx wrangler pages project create "$PROJECT" --production-branch main
           fi
+      - name: Sync admin login secrets
+        env:
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+          ADMIN_GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
+        run: |
+          node -e '
+            const keys = ["ADMIN_EMAIL", "ADMIN_PASSWORD", "ADMIN_GITHUB_TOKEN"];
+            const missing = keys.filter((k) => !process.env[k]);
+            if (missing.length) { console.error("Missing GitHub secret(s): " + missing.join(", ")); process.exit(1); }
+            require("fs").writeFileSync(process.env.RUNNER_TEMP + "/admin-secrets.json",
+              JSON.stringify(Object.fromEntries(keys.map((k) => [k, process.env[k]]))));
+          '
+          npx wrangler pages secret bulk "$RUNNER_TEMP/admin-secrets.json" --project-name "$PROJECT"
+          rm "$RUNNER_TEMP/admin-secrets.json"
       - name: Deploy
         run: npx wrangler pages deploy dist --project-name "$PROJECT" --branch main --commit-dirty=true

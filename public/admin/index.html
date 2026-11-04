@@ -10,5 +10,16 @@
   </head>
   <body>
     <script src="https://unpkg.com/@sveltia/cms@0.257.0/dist/sveltia-cms.js"></script>
+    <script>
+      // The login button opens our email + password page (functions/api/auth.ts),
+      // but Sveltia labels it after the git host. Rename it.
+      const FROM = 'Sign In with GitHub', TO = 'Sign In with Email';
+      const rename = () => {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        // Sveltia wraps the host name in invisible bidi marks (U+2068/U+2069).
+        for (let n; (n = walker.nextNode()); ) if (n.nodeValue.replace(/[\u2068\u2069]/g, '').trim() === FROM) n.nodeValue = TO;
+      };
+      new MutationObserver(rename).observe(document.body, { childList: true, subtree: true, characterData: true });
+    </script>
   </body>
 </html>

@@ -30,7 +30,12 @@ const seo = {
 };
 
 const buildConfig = (siteUrl: string) => ({
-  backend: { name: 'github', repo: GITHUB_REPO, branch: 'main' },
+  backend: {
+    name: 'github', repo: GITHUB_REPO, branch: 'main',
+    // Email + password login served by functions/api/auth.ts (same site).
+    // 'oauth' only = hide the "Sign In Using Access Token" button.
+    base_url: new URL(siteUrl).origin, auth_endpoint: 'api/auth', auth_methods: ['oauth'],
+  },
   media_folder: 'public/images/uploads',
   public_folder: '/images/uploads',
   site_url: siteUrl,

@@ -68,3 +68,36 @@ created; a re-run succeeded. Later runs skip creation, so it does not recur.
 
 **Verified:** all routes 200, unknown path 404, canonical/sitemap/robots use
 `https://allbonus.pages.dev`, `/admin/` sends `X-Robots-Tag: noindex`.
+
+## 2026-11-04 — Admin email + password login
+
+**Purpose:** Editors sign in to `/admin/` with an email and password instead of
+GitHub.
+
+**What was done:**
+- `functions/api/auth.ts` is a Cloudflare Pages Function at `/api/auth`. It
+  shows a login form and checks email and password against secrets, using a
+  constant-time compare and a 2 s delay on failure. On success it posts a
+  server-held fine-grained GitHub token to the CMS through Sveltia's OAuth
+  popup handshake (`authorizing:github` → `authorization:github:success:{token}`).
+- In the admin config, the backend has `base_url` set to the site origin,
+  `auth_endpoint: 'api/auth'` and `auth_methods: ['oauth']`, which hides the
+  token sign-in.
+- `public/admin/index.html` renames "Sign In with GitHub" to "Sign In with
+  Email". Sveltia wraps the host name in U+2068/U+2069 marks, which are
+  stripped before matching.
+- The deploy workflow syncs `ADMIN_EMAIL`, `ADMIN_PASSWORD` and
+  `ADMIN_GITHUB_TOKEN` from GitHub secrets to Cloudflare Pages
+  (`wrangler pages secret bulk`) and fails if any is missing.
+
+**Verified locally** (`wrangler pages dev` plus Playwright):
+- The button reads "Sign In with Email" and opens the popup form.
+- A wrong password is rejected with a 401 after 2 s.
+- A correct login closes the popup and the CMS calls the GitHub API with the
+  server-held token.
+- Email matching ignores case and surrounding spaces.
+
+**Limits:**
+- One shared admin account.
+- No lockout after repeated attempts; only the delay plus a strong password.
+- After login the token is stored in the editor's browser until they sign out.

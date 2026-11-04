@@ -21,13 +21,28 @@ npx astro check    # type-check
 
 ## Editing content (admin panel)
 
-Open `/admin/` and pick a sign-in method:
+Open `/admin/` → **Sign In with Email** → enter the admin email and password.
 
-| Method | When |
+How it works: `functions/api/auth.ts` (a Cloudflare Pages Function at
+`/api/auth`) checks the email/password and hands the CMS a fine-grained GitHub
+token that only the server knows. Each save is a commit → Cloudflare rebuilds in
+~1 min. The access-token option is hidden (`auth_methods: ['oauth']`).
+
+Login settings are GitHub repo secrets (Settings → Secrets → Actions); the
+deploy workflow copies them to Cloudflare on every deploy:
+
+| Secret | Value |
 |---|---|
-| **Work with Local Repository** | Local editing in Chrome/Edge. Pick this project folder; changes are written straight to the files. Rebuild to see them. |
-| **Sign In Using Access Token** | On the live site. Create a GitHub fine-grained token with *Contents: read & write* on this repo. Each save is a commit → Cloudflare rebuilds in ~1 min. |
-| Sign In with GitHub | Optional one-click login; needs an OAuth app + the `sveltia-cms-auth` Cloudflare Worker. |
+| `ADMIN_EMAIL` | Admin login email |
+| `ADMIN_PASSWORD` | Admin login password (use 12+ characters) |
+| `ADMIN_GITHUB_TOKEN` | Fine-grained token: only repo `anshush06/allbonus`, *Contents: read & write* |
+
+To change the password: update `ADMIN_PASSWORD`, then Actions → Deploy → *Run
+workflow*. Changing the password does not sign out browsers that are already
+signed in; to force that, regenerate `ADMIN_GITHUB_TOKEN`.
+
+Local editing: on `localhost` the admin also shows **Work with Local
+Repository** (Chrome/Edge). The email login only works on the live site.
 
 What you can edit:
 
