@@ -4,13 +4,13 @@
   "tab": "new",
   "order": 5,
   "published": true,
+  "referral_url": "https://app.groww.in/v3cO/zmwuwuxl",
+  "referral_code": "",
   "icon": "",
   "icon_color": "#00b386",
   "icon_text": "GROWW",
   "bonus_line": "Referral reward on account opening",
   "info_line": "Free demat account",
-  "referral_url": "https://example.com/referral/groww",
-  "referral_code": "",
   "download_label": "DOWNLOAD GROWW APP",
   "stats": [
     {
@@ -60,5 +60,5 @@
     }
   ],
   "last_verified": "2026-11-03",
-  "seo": {}
+  "seo": null
 }
