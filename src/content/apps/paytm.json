@@ -4,13 +4,13 @@
   "tab": "new",
   "order": 1,
   "published": true,
+  "referral_url": "https://p.paytm.me/xCTH/vclg18ds?utmt=110421",
+  "referral_code": "",
   "icon": "",
   "icon_color": "#00baf2",
   "icon_text": "PAYTM",
   "bonus_line": "Sign Up Cashback up to ₹100",
   "info_line": "Instant UPI cashback",
-  "referral_url": "https://example.com/referral/paytm",
-  "referral_code": "",
   "download_label": "DOWNLOAD PAYTM APP",
   "stats": [
     {
@@ -60,5 +60,5 @@
     }
   ],
   "last_verified": "2026-11-03",
-  "seo": {}
+  "seo": null
 }
