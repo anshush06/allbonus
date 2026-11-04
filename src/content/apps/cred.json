@@ -1,16 +1,16 @@
 {
-  "name": "CRED",
+  "name": "Google Pay",
   "category": "bill-payments",
   "tab": "new",
   "order": 4,
   "published": true,
+  "referral_url": "https://gpay.app.goo.gl/invite-eh9y70w",
+  "referral_code": "",
   "icon": "",
   "icon_color": "#111111",
   "icon_text": "CRED",
   "bonus_line": "Welcome rewards on first bill",
   "info_line": "CRED coins on every bill",
-  "referral_url": "https://example.com/referral/cred",
-  "referral_code": "",
   "download_label": "DOWNLOAD CRED APP",
   "stats": [
     {
@@ -60,5 +60,5 @@
     }
   ],
   "last_verified": "2026-11-03",
-  "seo": {}
+  "seo": null
 }
