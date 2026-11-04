@@ -5,6 +5,6 @@ description: Get in touch with the AllBonus team about offers, corrections or pa
 
 Found an offer that has changed or expired? Want to suggest an app? We'd like to hear from you.
 
-**Email:** hello@allbonus.com
+Our contact email is being set up and will be listed here shortly.
 
-We usually reply within two working days. Please never send us passwords, OTPs or card details.
+We will never ask you for passwords, OTPs, UPI PINs or card details, and nobody from AllBonus will contact you first asking for them.

@@ -3,12 +3,12 @@
   "category": "investing",
   "tab": "other",
   "order": 6,
-  "published": true,
+  "published": false,
   "icon": "",
   "icon_color": "#5a2d82",
   "icon_text": "UPSTOX",
-  "bonus_line": "Reward on demat account opening",
-  "info_line": "Free account opening",
+  "bonus_line": "Voucher reward on account opening",
+  "info_line": "Extra reward on first trade in 30 days",
   "referral_url": "https://example.com/referral/upstox",
   "referral_code": "",
   "download_label": "DOWNLOAD UPSTOX APP",
@@ -36,8 +36,8 @@
     "Enter your mobile number and email and verify both with OTP.",
     "Enter your PAN and date of birth, then complete Aadhaar-based KYC and e-sign with the OTP sent to your Aadhaar-linked mobile.",
     "Link your bank account and complete the in-person verification step (a short selfie or video) if the app asks for it.",
-    "Wait for activation. Upstox usually confirms by email and SMS within one or two working days.",
-    "Complete the qualifying action in the current offer and check the Refer & Earn section in the app for your reward."
+    "Finish opening your account within 7 days of signing up. Upstox's referral offer requires the account to be opened in that window.",
+    "Upstox gives a voucher reward under the offer active when you signed up. The remaining part of the reward needs your first trade within 30 days of signing up."
   ],
   "sections": [
     {
@@ -77,8 +77,8 @@
       "answer": "The online form takes about 10–15 minutes. Activation usually follows within one or two working days after verification."
     },
     {
-      "question": "When do I get the Upstox referral reward?",
-      "answer": "Once your account is active and you've completed the qualifying step in the current offer. You can track it in the app's Refer & Earn section."
+      "question": "What is the Upstox referral reward?",
+      "answer": "Upstox's referral offer gives vouchers that can be redeemed across many brands, rather than cash. Part is given when the account is opened (within 7 days of signing up), and the rest after a first trade within 30 days. The exact value depends on the offer active when you sign up."
     },
     {
       "question": "Can I open Upstox if my PAN isn't linked with Aadhaar?",
@@ -93,6 +93,6 @@
       "answer": "Yes. It only records who referred you before you sign up on Upstox's official app or website. Never share your OTPs or password with anyone."
     }
   ],
-  "last_verified": "2026-11-03",
+  "last_verified": "2026-11-04",
   "seo": {}
 }

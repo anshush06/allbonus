@@ -19,4 +19,4 @@ Our analytics provider may set cookies. You can block cookies in your browser se
 
 ## Contact
 
-Questions about this policy: hello@allbonus.com
+Questions about this policy: see our [Contact page](/contact/).

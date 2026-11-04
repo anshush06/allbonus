@@ -9,8 +9,8 @@
   "icon": "/images/uploads/download.png",
   "icon_color": "#00baf2",
   "icon_text": "PAYTM",
-  "bonus_line": "Sign Up Cashback up to ₹100",
-  "info_line": "Instant UPI cashback",
+  "bonus_line": "Cashback on your first UPI payment",
+  "info_line": "Paytm Refer & Win · new users only",
   "download_label": "DOWNLOAD PAYTM APP",
   "stats": [
     {
@@ -73,6 +73,10 @@
       "answer": "New Paytm users who install the app through a referral link, sign up with their own bank-linked mobile number and complete the qualifying payment within the offer period."
     },
     {
+      "question": "How much is the Paytm referral reward?",
+      "answer": "It depends on the campaign running when you join. Paytm's own guides have mentioned different amounts at different times, so check the Refer & Win section in the app for the current reward before you sign up."
+    },
+    {
       "question": "How long does Paytm cashback take?",
       "answer": "Most cashback or scratch cards appear shortly after the qualifying payment. If it hasn't appeared after a day, check the Cashback & Offers section and then contact Paytm Help & Support."
     },
@@ -93,6 +97,6 @@
       "answer": "Yes. A referral link only tells Paytm who invited you. You still install the official app, and you should never share your UPI PIN or OTP with anyone."
     }
   ],
-  "last_verified": "2026-11-03",
+  "last_verified": "2026-11-04",
   "seo": null
 }

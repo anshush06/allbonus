@@ -197,3 +197,30 @@ sooner without manual "Request indexing".
 - `astro check` reports 0 errors.
 - The sitemap lists the same 15 URLs as before, each with its own date
   (e.g. About on 3 Nov, Google Pay at the time of the icon upload).
+
+## 2026-11-04 — Verified offer wording, placeholders removed
+
+**Purpose:** Remove placeholder or wrong content from the live site, and base
+the offer wording on each app's official referral terms.
+
+**What was done:**
+- **Bonus lines rewritten from official help and terms pages.** No amounts are
+  given: every app says the amount depends on the current campaign, and
+  Paytm's own pages contradict each other (₹100 vs ₹150).
+  - **Paytm:** first UPI payment by a first-time user.
+  - **Google Pay:** first payment within 28 days; credit takes up to
+    7 business days; +91 number needed.
+  - **Groww:** cash reward to both people on account activation.
+  - **Upstox:** vouchers on account opening (within 7 days), the rest after a
+    trade within 30 days.
+- `last_verified` set to 4 Nov for all apps.
+- **Upstox unpublished.** There is no referral link of the owner's, so the
+  page would promise a reward visitors can't get.
+- **Floating Telegram button disabled.** It pointed to the placeholder
+  `t.me/your-channel` on every page.
+- **Contact and privacy pages:** removed `hello@allbonus.com`. That domain
+  belongs to someone else, so mail would reach a stranger.
+- **Homepage "Featured" text** updated to match.
+
+**Verified:** 18 pages built; no `example.com`, `your-channel` or
+`allbonus.com` remains in the HTML output.

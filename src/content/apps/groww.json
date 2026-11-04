@@ -9,8 +9,8 @@
   "icon": "/images/uploads/download.jpg",
   "icon_color": "#00b386",
   "icon_text": "GROWW",
-  "bonus_line": "Referral reward on account opening",
-  "info_line": "Free demat account",
+  "bonus_line": "Cash reward when your account is activated",
+  "info_line": "Free demat account · reward for both",
   "download_label": "DOWNLOAD GROWW APP",
   "stats": [
     {
@@ -37,7 +37,7 @@
     "Enter your PAN and complete KYC with Aadhaar: e-sign via OTP on your Aadhaar-linked mobile and take a short selfie or photo check.",
     "Add your bank account for adding and withdrawing money, and upload or draw your signature if asked.",
     "Wait for account activation. Demat accounts usually become active within a day or two once KYC is verified.",
-    "Complete the qualifying action in the current referral offer (often account opening, sometimes a first investment or trade) and check the Refer & Earn section for your reward."
+    "Once your account is activated, Groww's referral programme gives a cash reward to both you and the person who referred you. Check the Refer & earn section in your profile."
   ],
   "sections": [
     {
@@ -78,7 +78,7 @@
     },
     {
       "question": "When will I get the Groww referral reward?",
-      "answer": "After your account is active and you've completed the qualifying step in the current offer. Track it in the Refer & Earn section of the app."
+      "answer": "Groww's referral programme pays a cash reward to both people once the referred account is activated, and the referrer's own account must also be active. The amount depends on the current campaign, so check Refer & earn in the app."
     },
     {
       "question": "Can I open a Groww account without Aadhaar linked to my mobile?",
@@ -93,6 +93,6 @@
       "answer": "Treat it as a small extra, not a reason to invest. Only invest money you can afford to keep invested, and choose products you understand."
     }
   ],
-  "last_verified": "2026-11-03",
+  "last_verified": "2026-11-04",
   "seo": null
 }
