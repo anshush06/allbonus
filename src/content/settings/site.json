@@ -42,7 +42,7 @@
     }
   ],
   "float_button": {
-    "enabled": true,
+    "enabled": false,
     "label": "Join our Telegram",
     "href": "https://t.me/your-channel",
     "icon": "send"

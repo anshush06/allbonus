@@ -64,7 +64,8 @@ links. No gambling or rummy apps.
 | 4 | Add the new domain to Search Console (verification code, then submit `sitemap-index.xml`) | You + Claude | waiting on #3 |
 | 5 | Create GA4 property, send the Measurement ID (`G-…`) | You | ⏳ |
 | 6 | Add GA4 visitor stats plus a **`download_click` event per app** | Claude | ✅ code done — activates when the GA4 ID is added in Site Settings; then register custom dimension `app_name` in GA4 |
-| 7 | Replace placeholders in Admin → Apps: **real referral links** (Upstox still placeholder), current bonus amounts (all bonus lines are still placeholders), app icons, Telegram link, contact email | You | ⏳ before promoting |
+| 7 | Bonus lines rewritten from the apps' official referral terms (no unverifiable amounts); Upstox **hidden** until its referral link is added; Telegram button **off** until a channel exists; wrong `hello@allbonus.com` (someone else's domain) removed | Claude | ✅ 4 Nov |
+| 7b | Add Upstox referral link, then tick *Show on website* · Telegram channel link, then enable the floating button · public contact email · app icons for Paytm/Groww | You | ⏳ |
 | 7a | Unique 800+ word content for each app page; 2 long-tail blog posts; title/description lengths fixed | Claude | ✅ done 4 Nov |
 | 8 | Search Console → URL Inspection → **Request indexing** for each app page (about 10/day), on the **new domain** | You | after #3 and #7 |
 | 9 | Promote: Telegram, WhatsApp, YouTube, Instagram, Quora answers (links from other places help ranking) | You | ongoing |

@@ -9,8 +9,8 @@
   "icon": "/images/uploads/images.jpg",
   "icon_color": "#1a73e8",
   "icon_text": "GPAY",
-  "bonus_line": "Rewards on first payment",
-  "info_line": "Scratch card rewards",
+  "bonus_line": "Reward after your first payment",
+  "info_line": "First payment within 28 days of sign-up",
   "download_label": "DOWNLOAD GOOGLE PAY APP",
   "stats": [
     {
@@ -36,8 +36,8 @@
     "Install Google Pay from that page on a phone where it hasn't been used before.",
     "Choose your language, then sign in with the mobile number that is linked to your bank account.",
     "Add your bank account and set a UPI PIN using your debit card details or Aadhaar-based verification.",
-    "Make the qualifying payment shown in the invite offer, usually your first UPI payment to someone or a merchant.",
-    "Check the Rewards section for your reward (scratch card or cashback)."
+    "Make your first payment within 28 days of signing up. Google's rules say both you and the person who invited you get the reward after that first payment.",
+    "Check the Rewards section. Google says the reward can take up to 7 business days to appear."
   ],
   "sections": [
     {
@@ -48,7 +48,7 @@
     {
       "title": "Before you start",
       "icon": "check",
-      "body": "1. Your **SIM must be in the phone** you're installing Google Pay on. UPI verifies your number by sending an SMS from that SIM.\n2. The number must be **registered with your bank account**.\n3. Keep your **debit card** (last 6 digits and expiry) or Aadhaar handy to set the UPI PIN.\n4. Use your own name and bank account. Rewards on accounts set up for someone else can be held back."
+      "body": "1. You need an **Indian mobile number (+91)**, and the **SIM must be in the phone** you're installing Google Pay on. UPI verifies your number by sending an SMS from that SIM.\n2. The number must be **registered with your bank account**.\n3. Keep your **debit card** (last 6 digits and expiry) or Aadhaar handy to set the UPI PIN.\n4. Use your own name and bank account. Rewards on accounts set up for someone else can be held back."
     },
     {
       "title": "Invite reward not showing? Check these",
@@ -70,7 +70,7 @@
   "faqs": [
     {
       "question": "How does the Google Pay invite reward work?",
-      "answer": "When a new user joins Google Pay through an invite link and makes the qualifying first payment, Google may reward the new user and the person who invited them. The exact reward and rules are shown in the app."
+      "answer": "A new user joins through an invite link and makes their first payment within 28 days of signing up. Then both the new user and the person who invited them get a reward, which can take up to 7 business days to show. The amount depends on the current offer in the app."
     },
     {
       "question": "Why didn't I get the Google Pay invite reward?",
@@ -93,6 +93,6 @@
       "answer": "Yes. It only opens the official Google Pay app or store page and records who invited you. Never share your UPI PIN or OTP with anyone."
     }
   ],
-  "last_verified": "2026-11-03",
+  "last_verified": "2026-11-04",
   "seo": null
 }
