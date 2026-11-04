@@ -6,7 +6,7 @@
   "published": true,
   "referral_url": "https://p.paytm.me/xCTH/vclg18ds?utmt=110421",
   "referral_code": "",
-  "icon": "",
+  "icon": "/images/uploads/download.png",
   "icon_color": "#00baf2",
   "icon_text": "PAYTM",
   "bonus_line": "Sign Up Cashback up to ₹100",
@@ -93,5 +93,6 @@
       "answer": "Yes. A referral link only tells Paytm who invited you. You still install the official app, and you should never share your UPI PIN or OTP with anyone."
     }
   ],
-  "last_verified": "2026-11-03"
+  "last_verified": "2026-11-03",
+  "seo": null
 }
