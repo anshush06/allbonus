@@ -102,6 +102,12 @@ and `noindex` on `/admin/*`.
 The site is served at the domain root; `withBase()` still supports a sub-folder
 via the `BASE_PATH` env var if ever needed.
 
+### Removing an app or category
+
+Add the old URL to `public/_redirects` with a 301 to the closest live page.
+Cloudflare keeps files from earlier deploys at its edge for about a week, so
+without a redirect a deleted page keeps showing its old content.
+
 ### Own domain later
 
 Cloudflare dashboard → Workers & Pages → `allbonus` → Custom domains → add it,

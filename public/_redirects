@@ -1,0 +1,9 @@
+# Permanent redirects for pages that were removed (Cloudflare Pages).
+# Cloudflare keeps files from earlier deploys at its edge for about a week, so
+# a removed page keeps showing old content unless it is redirected here.
+# When you delete an app or a category, add its old URL below.
+/bill-payments/cred/     /payments/google-pay/   301
+/bill-payments/          /                       301
+/food-delivery/swiggy/   /                       301
+/food-delivery/          /                       301
+/payments/phonepe/       /payments/              301
