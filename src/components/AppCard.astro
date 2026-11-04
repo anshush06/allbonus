@@ -1,20 +1,23 @@
 ---
+// App list card. The Download button opens the referral link (via /go/<app>/);
+// clicking anywhere else on the card opens the app's detail page (the title
+// link is stretched over the whole card, see .app-card-link in global.css).
 import Icon from './Icon.astro';
 import AppIcon from './AppIcon.astro';
-import { appPath, withBase, type App } from '../lib/content';
+import { appPath, goPath, withBase, type App } from '../lib/content';
 interface Props { app: App; number?: number; buttonLabel: string }
 const { app, number, buttonLabel } = Astro.props;
-const href = withBase(appPath(app));
 ---
 <article class="app-card" data-search={`${app.data.name} ${app.data.bonus_line}`.toLowerCase()}>
   {number !== undefined && <div class="app-number">{number}</div>}
-  <a href={href} tabindex="-1" aria-hidden="true"><AppIcon app={app} /></a>
+  <AppIcon app={app} />
   <div class="min-w-0 flex-1">
-    <h3 class="app-name"><a href={href}>{app.data.name}</a></h3>
+    <h3 class="app-name"><a href={withBase(appPath(app))} class="app-card-link">{app.data.name}</a></h3>
     <div class="app-line app-line--bonus"><Icon name="gift" size={12} /><span class="truncate">{app.data.bonus_line}</span></div>
     <div class="app-line"><Icon name="wallet" size={12} /><span class="truncate">{app.data.info_line}</span></div>
   </div>
-  <a href={href} class="btn-dark" aria-label={`${buttonLabel} ${app.data.name}`}>
+  <a href={withBase(goPath(app))} class="btn-dark" target="_blank" rel="sponsored nofollow noopener"
+    aria-label={`${buttonLabel} ${app.data.name}`}>
     <Icon name="download" size={13} />{buttonLabel}
   </a>
 </article>

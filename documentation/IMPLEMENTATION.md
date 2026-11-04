@@ -119,3 +119,19 @@ GitHub.
 - Screenshots at 1440px and 390px of home, category, app and about pages.
 - No horizontal scroll on any of those pages.
 - `astro check` reports 0 errors.
+
+## 2026-11-04 — Card Download button opens the referral link
+
+**Purpose:** On app cards, Download should go straight to the referral link,
+and clicking anywhere else on the card should open the app's page.
+
+**What was done:** In `AppCard.astro`, the button now links to
+`/go/<app>/` with `target="_blank"` and `rel="sponsored nofollow noopener"`.
+The title link is stretched over the whole card (`.app-card-link::after`,
+`absolute inset-0`), and `.btn-dark` is `relative z-10` so it sits above that
+layer. This avoids invalid nested links and keeps a single crawlable link to
+the app page. The duplicate icon link was removed.
+
+**Verified:** Playwright at 1440px and 390px. The button opens a new tab that
+ends on the referral URL. Clicks on the blank area, icon, bonus text and
+number badge all open `/payments/paytm/`.

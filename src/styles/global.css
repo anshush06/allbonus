@@ -58,13 +58,17 @@
   .app-icon { @apply flex h-[45px] w-[45px] shrink-0 items-center justify-center overflow-hidden rounded-[10px] text-center text-[9px] font-bold leading-none text-white sm:h-[50px] sm:w-[50px]; }
   .app-icon img { @apply h-full w-full object-cover; }
   .app-name { @apply mb-1.5 text-[15px] font-semibold sm:text-base; }
+  /* Whole card opens the app page; the Download button sits above this layer. */
+  .app-card-link::after { @apply absolute inset-0 rounded-xl content-['']; }
+  .app-card-link:focus-visible { @apply outline-none; }
+  .app-card-link:focus-visible::after { @apply outline-2 outline-offset-2; outline-color: var(--accent); outline-style: solid; }
   .app-line { @apply flex min-w-0 items-center gap-1.5 text-[10px] font-medium leading-tight sm:text-[11px]; }
   .app-line + .app-line { @apply mt-1; }
   .app-line svg { @apply shrink-0; }
   .app-line { color: #000; }
   .app-line--bonus { color: var(--header-to); }
 
-  .btn-dark { @apply flex shrink-0 items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold text-white sm:px-4 sm:py-2.5 sm:text-[13px];
+  .btn-dark { @apply relative z-10 flex shrink-0 items-center gap-1.5 rounded-lg px-3.5 py-2 text-xs font-semibold text-white sm:px-4 sm:py-2.5 sm:text-[13px];
     background: var(--button); }
   .btn-dark:hover { background: var(--button-hover); }
 
