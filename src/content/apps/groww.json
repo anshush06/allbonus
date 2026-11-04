@@ -6,7 +6,7 @@
   "published": true,
   "referral_url": "https://app.groww.in/v3cO/zmwuwuxl",
   "referral_code": "",
-  "icon": "",
+  "icon": "/images/uploads/download.jpg",
   "icon_color": "#00b386",
   "icon_text": "GROWW",
   "bonus_line": "Referral reward on account opening",
@@ -93,5 +93,6 @@
       "answer": "Treat it as a small extra, not a reason to invest. Only invest money you can afford to keep invested, and choose products you understand."
     }
   ],
-  "last_verified": "2026-11-03"
+  "last_verified": "2026-11-03",
+  "seo": null
 }
