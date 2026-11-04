@@ -11,7 +11,12 @@ const hex = z.string().regex(/^#[0-9a-fA-F]{6}$/, 'Use a 6-digit hex colour like
 const faq = z.object({ question: z.string(), answer: z.string() });
 // A titled block of Markdown text, rendered as a white card.
 const section = z.object({ title: z.string(), icon: icon.default('info'), body: z.string() });
-const seo = z.object({ title: z.string().optional(), description: z.string().optional() }).default({});
+// The admin writes null for an empty SEO box when the editor's tab still has the
+// pre-#1 config loaded; null means "not set", same as a missing key.
+const seo = z
+  .object({ title: z.string().optional(), description: z.string().optional() })
+  .nullish()
+  .transform((v) => v ?? {});
 const link = z.object({ label: z.string(), href: z.string() });
 
 // Global settings: brand, colours, navigation, floating button, footer, analytics.
