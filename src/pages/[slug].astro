@@ -6,7 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import AppCard from '../components/AppCard.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { render } from 'astro:content';
-import { getSite, getHome, getApps, getCategories, getPages, categoryPath, pagePath, absoluteUrl, type Category, type Page, type App } from '../lib/content';
+import { getSite, getHome, getApps, getCategories, getPages, categoryPath, pagePath, absoluteUrl, pageTitle, metaDescription, type Category, type Page, type App } from '../lib/content';
 import { breadcrumbSchema } from '../lib/schema';
 
 type Props = { kind: 'category'; category: Category; apps: App[] } | { kind: 'page'; page: Page };
@@ -30,13 +30,13 @@ const view =
     ? {
         path: categoryPath(props.category.id),
         name: props.category.data.name,
-        title: props.category.data.seo.title || `${props.category.data.name} Apps with Referral Bonus | ${site.name}`,
-        description: props.category.data.seo.description || props.category.data.description,
+        title: props.category.data.seo.title || pageTitle(`${props.category.data.name} Apps with Referral Bonus`, site.name),
+        description: props.category.data.seo.description || metaDescription(props.category.data.description),
       }
     : {
         path: pagePath(props.page),
         name: props.page.data.title,
-        title: `${props.page.data.title} | ${site.name}`,
+        title: pageTitle(props.page.data.title, site.name),
         description: props.page.data.description,
       };
 const crumbs = [homeCrumb, { name: view.name, url: absoluteUrl(view.path) }];

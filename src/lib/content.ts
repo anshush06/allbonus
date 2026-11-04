@@ -23,9 +23,13 @@ export async function getHome() {
   return entry.data;
 }
 
+/** Categories that contain at least one published app (empty ones get no page or menu link). */
 export async function getCategories(): Promise<Category[]> {
-  const all = await getCollection('categories');
-  return all.sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
+  const [all, apps] = await Promise.all([getCollection('categories'), getApps()]);
+  const used = new Set(apps.map((app) => app.data.category.id));
+  return all
+    .filter((c) => used.has(c.id))
+    .sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
 }
 
 export async function getApps(): Promise<App[]> {
@@ -71,6 +75,21 @@ export const withBase = (href: string) => (href.startsWith('/') && !href.startsW
 
 /** Full URL for canonical tags, sitemaps and JSON-LD. */
 export const absoluteUrl = (path: string) => new URL(withBase(path), import.meta.env.SITE).href;
+
+// Google shows roughly 60 title characters and 155 description characters.
+const TITLE_MAX = 60;
+const DESCRIPTION_MAX = 155;
+
+/** "<title> | <site>", without the suffix when it repeats the site name or makes the title too long. */
+export const pageTitle = (title: string, siteName: string) =>
+  title.includes(siteName) || title.length + siteName.length + 3 > TITLE_MAX ? title : `${title} | ${siteName}`;
+
+/** Text shortened to a meta description, cut at a word boundary. */
+export function metaDescription(text: string) {
+  const t = text.replace(/\s+/g, ' ').trim();
+  if (t.length <= DESCRIPTION_MAX) return t;
+  return t.slice(0, t.lastIndexOf(' ', DESCRIPTION_MAX - 1)).replace(/[\s,;:—-]+$/, '') + '…';
+}
 
 export const formatDate = (d: Date) =>
   d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });

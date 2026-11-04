@@ -30,33 +30,67 @@
       "label": "Users only"
     }
   ],
-  "intro": "Invest in stocks, mutual funds and IPOs with a simple, low-cost app. New users who sign up through our referral link can claim the current welcome offer by completing the steps below.",
+  "intro": "Groww is a popular investing app from Bengaluru for buying stocks, mutual funds, ETFs and IPOs from your phone. It's run by a SEBI-registered stockbroker, and you can open a demat and trading account online in a few minutes with your PAN and Aadhaar. When you open your account through a referral link, Groww's referral programme can reward you after you complete the steps in the current offer. This guide covers the documents you need, each step, and how to make sure the referral is tracked.",
   "steps": [
-    "Tap the Download button above to open the official Groww page.",
-    "Install Groww and sign up with your mobile number.",
-    "Enter the referral code if asked, and complete KYC.",
-    "Complete the qualifying action shown in the app to unlock your reward."
+    "Tap the Download button on this page to open Groww's referral link, then install the app from there.",
+    "Sign up with your email or Google account and verify your mobile number.",
+    "Enter your PAN and complete KYC with Aadhaar: e-sign via OTP on your Aadhaar-linked mobile and take a short selfie or photo check.",
+    "Add your bank account for adding and withdrawing money, and upload or draw your signature if asked.",
+    "Wait for account activation. Demat accounts usually become active within a day or two once KYC is verified.",
+    "Complete the qualifying action in the current referral offer (often account opening, sometimes a first investment or trade) and check the Refer & Earn section for your reward."
   ],
   "sections": [
     {
-      "title": "Why use Groww?",
-      "icon": "star",
-      "body": "- Official app on Google Play and the App Store\n- Free demat account\n- Trusted by millions of users in India"
+      "title": "What you can invest in on Groww",
+      "icon": "grid",
+      "body": "- **Stocks** on NSE and BSE, for delivery and intraday.\n- **Mutual funds:** direct plans, as one-time investments or SIPs.\n- **ETFs and IPOs:** apply for IPOs with UPI.\n- **Futures & options:** for experienced traders only; these carry high risk.\n- **Fixed deposits and other products** shown in the app."
+    },
+    {
+      "title": "Documents you need",
+      "icon": "check",
+      "body": "| What | Why |\n|---|---|\n| PAN card | Required for every investment account in India |\n| Aadhaar linked to your mobile | For KYC and e-signing with OTP |\n| Bank account in your name | To add money and receive withdrawals |\n| Signature (on white paper) | Some accounts need a photo of it |\n\nYou must be **18 or older**. The name on your PAN, Aadhaar and bank account should match. Mismatched names are the most common reason KYC gets stuck."
+    },
+    {
+      "title": "Referral reward not credited? Check these",
+      "icon": "alert",
+      "body": "- **Account opened before using the link:** the link has to be used *before* you sign up.\n- **KYC still pending:** the reward is only processed after your account is fully activated.\n- **Qualifying step missing:** some offers need a first trade or investment, not only account opening. Read the current offer.\n- **Same PAN used before:** an existing or closed Groww account on your PAN doesn't count as new.\n- **Still missing?** Use *Help & Support* in the Groww app."
+    },
+    {
+      "title": "Is Groww safe?",
+      "icon": "shield",
+      "body": "Groww operates as a SEBI-registered stockbroker and depository participant. Your shares are held in **your own demat account** with a depository (CDSL), not with the app.\n\nInvesting always carries market risk, and a referral bonus is **never a reason to invest**. Start with amounts you can afford to lose, and avoid F&O unless you fully understand it; SEBI studies show most individual F&O traders lose money."
     }
   ],
   "terms": [
-    "Offer valid for new users only.",
-    "Reward amount and eligibility are decided by Groww and may change without notice.",
-    "Check the latest terms inside the app before signing up."
+    "The referral reward is for new Groww users only, with one account per PAN.",
+    "You must use the referral link before signing up and complete KYC and the qualifying action within the offer period.",
+    "Groww sets the reward, form and eligibility and may change or end the programme at any time.",
+    "Investments are subject to market risk. Read all scheme and platform documents before investing."
   ],
   "faqs": [
     {
-      "question": "Who can claim the Groww referral bonus?",
-      "answer": "New users who sign up through a referral link and complete the qualifying step shown in the app."
+      "question": "Is opening a Groww account free?",
+      "answer": "Groww has offered free account opening, but charges such as brokerage and demat fees can apply when you trade. Check the current charges page in the app before investing."
     },
     {
-      "question": "How long does the reward take?",
-      "answer": "Most rewards are credited within a few days of completing the qualifying step."
+      "question": "How long does Groww account opening take?",
+      "answer": "Sign-up and KYC take about 10 minutes online. Activation usually follows within one or two working days once your documents are verified."
+    },
+    {
+      "question": "When will I get the Groww referral reward?",
+      "answer": "After your account is active and you've completed the qualifying step in the current offer. Track it in the Refer & Earn section of the app."
+    },
+    {
+      "question": "Can I open a Groww account without Aadhaar linked to my mobile?",
+      "answer": "Aadhaar OTP is the fastest way to e-sign. If your mobile isn't linked to Aadhaar, the app may offer an offline or document-upload route, which takes longer."
+    },
+    {
+      "question": "I already have a demat account elsewhere. Can I still use Groww?",
+      "answer": "Yes. You can hold more than one demat account. For the referral reward, what matters is that you're new to Groww."
+    },
+    {
+      "question": "Is the referral bonus worth investing for?",
+      "answer": "Treat it as a small extra, not a reason to invest. Only invest money you can afford to keep invested, and choose products you understand."
     }
   ],
   "last_verified": "2026-11-03"

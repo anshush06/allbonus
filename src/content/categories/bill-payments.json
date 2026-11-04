@@ -1,1 +1,6 @@
-{ "name": "Bill Payments", "description": "Apps that reward you for paying credit card and utility bills.", "order": 3, "seo": {} }
+{
+  "name": "Bill Payments",
+  "description": "Bill payment and credit card apps with referral and sign-up rewards — how each offer works and how to claim it.",
+  "order": 3,
+  "seo": {}
+}

@@ -1,5 +1,5 @@
 ---
-title: How app referral bonuses work in India (and why some never arrive)
+title: How Referral Bonuses Work in India (and Why Some Fail)
 description: A plain-language guide to referral and sign-up bonuses on payment and investing apps — qualifying steps, common mistakes and how to make sure you get paid.
 date: 2026-11-03
 related_apps:

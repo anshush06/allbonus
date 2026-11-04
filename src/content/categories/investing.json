@@ -1,1 +1,6 @@
-{ "name": "Investing", "description": "Stock broking and mutual fund apps with referral rewards for new accounts.", "order": 2, "seo": {} }
+{
+  "name": "Investing",
+  "description": "Demat and investing apps like Groww and Upstox with referral rewards on account opening — documents needed, steps and offer terms explained.",
+  "order": 2,
+  "seo": {}
+}

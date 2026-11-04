@@ -30,33 +30,67 @@
       "label": "Users only"
     }
   ],
-  "intro": "India's popular payments app for UPI, recharges, bill payments and more. New users who sign up through our referral link can claim the current welcome offer by completing the steps below.",
+  "intro": "Paytm is one of India's best-known payment apps, run by One97 Communications. You can use it to send money over UPI, scan QR codes in shops, recharge your mobile and DTH, pay electricity and other bills, buy FASTag and book train, bus and flight tickets. New users who join through a referral link can unlock Paytm's current welcome offer, usually as cashback or a scratch card after their first qualifying payment. This page explains exactly how to claim it and what to do if it doesn't show up.",
   "steps": [
-    "Tap the Download button above to open the official Paytm page.",
-    "Install Paytm and sign up with your mobile number.",
-    "Enter the referral code if asked, and complete KYC.",
-    "Complete the qualifying action shown in the app to unlock your reward."
+    "Tap the Download button on this page. It opens Paytm's official referral page or the Play Store/App Store listing.",
+    "Install Paytm from that page. Don't install it from a different link first, or the referral may not be recorded.",
+    "Sign up with the mobile number that is linked to your bank account and verify it with the OTP.",
+    "Link your bank account for UPI and set your UPI PIN using your debit card or Aadhaar-based verification.",
+    "Make the qualifying payment shown in the offer, usually your first UPI payment to a friend or a shop, or a recharge or bill payment.",
+    "Open the Cashback & Offers or Scratch Cards section in the app to find your reward. It usually appears soon after the qualifying payment."
   ],
   "sections": [
     {
-      "title": "Why use Paytm?",
-      "icon": "star",
-      "body": "- Official app on Google Play and the App Store\n- Instant UPI cashback\n- Trusted by millions of users in India"
+      "title": "What you can do on Paytm",
+      "icon": "grid",
+      "body": "- **UPI payments:** send money to any UPI ID, phone number or bank account, and scan any UPI QR code in shops.\n- **Recharges and bills:** mobile, DTH, electricity, water, gas, broadband, credit card bills and loan EMIs.\n- **FASTag:** buy and recharge FASTag for your car.\n- **Travel:** book train, bus and flight tickets in the same app.\n- **UPI Lite:** make small payments quickly without entering your UPI PIN each time.\n- **Investing:** Paytm Money, a separate app from the same group, offers stocks and mutual funds."
+    },
+    {
+      "title": "Before you start",
+      "icon": "check",
+      "body": "Keep these ready so sign-up and the first payment go smoothly:\n\n1. A mobile number that is **registered with your bank account**. UPI only works with the bank-linked number.\n2. A **debit card** or Aadhaar linked to that bank account, to set your UPI PIN.\n3. A phone where Paytm has **never been installed with another account**. Many referral programmes allow one reward per device.\n\nPaytm's UPI now runs through partner banks, so your UPI ID will look like *yourname@pt…*. That's normal."
+    },
+    {
+      "title": "Cashback not received? Check these",
+      "icon": "alert",
+      "body": "- **Wrong install path:** if you installed Paytm from the Play Store directly instead of the referral link, the referral is usually not tracked.\n- **Not a new user:** offers are for first-time Paytm users. If this number or device was used on Paytm before, you won't qualify.\n- **Qualifying payment not done:** signing up alone doesn't earn the reward. Check the minimum amount or payment type in the offer.\n- **Time limit:** most offers must be completed within a few days of sign-up.\n- **Still missing?** Open *Help & Support* in the app and choose the cashback or offers option. Paytm decides all rewards; we can't add them."
+    },
+    {
+      "title": "Is Paytm safe to use?",
+      "icon": "shield",
+      "body": "Paytm is a widely used app available on the official Google Play Store and Apple App Store. Stay safe by following the usual UPI rules:\n\n- **Never share your UPI PIN or OTP** with anyone, including people claiming to be from Paytm.\n- **You never need your PIN to *receive* money.** A request that asks for your PIN to \"get cashback\" is a scam.\n- Only download Paytm from the official store or the official referral page."
     }
   ],
   "terms": [
-    "Offer valid for new users only.",
-    "Reward amount and eligibility are decided by Paytm and may change without notice.",
-    "Check the latest terms inside the app before signing up."
+    "The offer is for new Paytm users only, with one reward per person, mobile number and device.",
+    "You must install through the referral link and complete the qualifying payment within the time shown in the app.",
+    "Paytm decides the reward amount, form (cashback or scratch card) and eligibility, and may change or end the offer at any time.",
+    "Always read the current terms inside the Paytm app before you start."
   ],
   "faqs": [
     {
-      "question": "Who can claim the Paytm referral bonus?",
-      "answer": "New users who sign up through a referral link and complete the qualifying step shown in the app."
+      "question": "Who can get the Paytm referral bonus?",
+      "answer": "New Paytm users who install the app through a referral link, sign up with their own bank-linked mobile number and complete the qualifying payment within the offer period."
     },
     {
-      "question": "How long does the reward take?",
-      "answer": "Most rewards are credited within a few days of completing the qualifying step."
+      "question": "How long does Paytm cashback take?",
+      "answer": "Most cashback or scratch cards appear shortly after the qualifying payment. If it hasn't appeared after a day, check the Cashback & Offers section and then contact Paytm Help & Support."
+    },
+    {
+      "question": "Do I need to enter a referral code?",
+      "answer": "Usually not. Installing through the referral link is enough. If the app asks for a code during sign-up and one is shown on this page, enter it there."
+    },
+    {
+      "question": "Can I claim the offer again on a second number?",
+      "answer": "No. Paytm allows one welcome reward per person and device, and duplicate accounts can be blocked."
+    },
+    {
+      "question": "Why is my Paytm UPI ID different from before?",
+      "answer": "Paytm UPI now works through partner banks, so new UPI IDs use partner-bank handles. Payments work as usual."
+    },
+    {
+      "question": "Is it safe to sign up through a referral link?",
+      "answer": "Yes. A referral link only tells Paytm who invited you. You still install the official app, and you should never share your UPI PIN or OTP with anyone."
     }
   ],
   "last_verified": "2026-11-03"

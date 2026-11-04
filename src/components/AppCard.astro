@@ -17,6 +17,7 @@ const { app, number, buttonLabel } = Astro.props;
     <div class="app-line"><Icon name="wallet" size={12} /><span class="truncate">{app.data.info_line}</span></div>
   </div>
   <a href={withBase(goPath(app))} class="btn-dark" target="_blank" rel="sponsored nofollow noopener"
+    data-track-app={app.data.name} data-track-location="app_card"
     aria-label={`${buttonLabel} ${app.data.name}`}>
     <Icon name="download" size={13} />{buttonLabel}
   </a>

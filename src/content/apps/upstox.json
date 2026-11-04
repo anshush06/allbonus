@@ -30,33 +30,67 @@
       "label": "Users only"
     }
   ],
-  "intro": "Trade stocks and invest in mutual funds with a demat account. New users who sign up through our referral link can claim the current welcome offer by completing the steps below.",
+  "intro": "Upstox is a Mumbai-based online broker for stocks, mutual funds, IPOs, F&O and commodities. It's a SEBI-registered stockbroker backed by well-known investors, and you can open your account fully online with PAN and Aadhaar. When you join through a referral link, Upstox's referral programme can give you the current welcome reward once your account is active and you complete the qualifying step. Below is everything you need to know before you sign up.",
   "steps": [
-    "Tap the Download button above to open the official Upstox page.",
-    "Install Upstox and sign up with your mobile number.",
-    "Enter the referral code if asked, and complete KYC.",
-    "Complete the qualifying action shown in the app to unlock your reward."
+    "Tap the Download button on this page to open the Upstox referral link, and install or sign up from there.",
+    "Enter your mobile number and email and verify both with OTP.",
+    "Enter your PAN and date of birth, then complete Aadhaar-based KYC and e-sign with the OTP sent to your Aadhaar-linked mobile.",
+    "Link your bank account and complete the in-person verification step (a short selfie or video) if the app asks for it.",
+    "Wait for activation. Upstox usually confirms by email and SMS within one or two working days.",
+    "Complete the qualifying action in the current offer and check the Refer & Earn section in the app for your reward."
   ],
   "sections": [
     {
-      "title": "Why use Upstox?",
-      "icon": "star",
-      "body": "- Official app on Google Play and the App Store\n- Free account opening\n- Trusted by millions of users in India"
+      "title": "What you can do on Upstox",
+      "icon": "grid",
+      "body": "- **Stocks:** buy and sell on NSE and BSE, for delivery or intraday.\n- **Mutual funds:** direct plans with SIP or lump sum.\n- **IPOs:** apply with UPI from the app.\n- **F&O, commodities and currency:** for experienced traders, with high risk.\n- **Charts and tools:** advanced charts, option chain and stock screeners on mobile and the web."
+    },
+    {
+      "title": "Documents you need",
+      "icon": "check",
+      "body": "- **PAN card** (must be linked with Aadhaar).\n- **Aadhaar** with your mobile number linked, for the OTP e-sign.\n- **A bank account in your own name**: cancelled cheque or bank statement details.\n- **Income proof**, only if you want to trade F&O or commodities.\n\nYou must be **18 or older** and an Indian resident. NRIs can use a separate account-opening process."
+    },
+    {
+      "title": "Referral reward missing? Check these",
+      "icon": "alert",
+      "body": "- **Signed up without the link:** referrals are only tracked if you start sign-up from the referral link.\n- **Account not active yet:** rewards are processed after KYC is approved and the account is live.\n- **Offer step not done:** some offers need a first trade or investment. Read the current offer terms.\n- **Existing Upstox account on your PAN:** you won't count as a new user.\n- **Still missing?** Contact Upstox support from the app or website."
+    },
+    {
+      "title": "Is Upstox safe?",
+      "icon": "shield",
+      "body": "Upstox is a SEBI-registered stockbroker and depository participant, so your shares sit in **your own demat account** with the depository.\n\nThe usual safety rules apply: never share your login OTP or password, enable two-factor login, and ignore \"tips\" groups promising guaranteed returns. They're a common investment scam. Market investments carry risk, so invest only what you can afford."
     }
   ],
   "terms": [
-    "Offer valid for new users only.",
-    "Reward amount and eligibility are decided by Upstox and may change without notice.",
-    "Check the latest terms inside the app before signing up."
+    "The referral reward is for new Upstox users only, with one account per PAN.",
+    "Sign-up must start from the referral link, and KYC and the qualifying action must be completed within the offer period.",
+    "Upstox decides the reward, form and eligibility and can change or withdraw the programme at any time.",
+    "Investments in securities are subject to market risk. Read all related documents carefully before investing."
   ],
   "faqs": [
     {
-      "question": "Who can claim the Upstox referral bonus?",
-      "answer": "New users who sign up through a referral link and complete the qualifying step shown in the app."
+      "question": "Is Upstox account opening free?",
+      "answer": "Upstox has offered free online account opening, but brokerage, demat and other charges can apply when you invest or trade. See the current pricing page before you start."
     },
     {
-      "question": "How long does the reward take?",
-      "answer": "Most rewards are credited within a few days of completing the qualifying step."
+      "question": "How long does it take to open an Upstox account?",
+      "answer": "The online form takes about 10–15 minutes. Activation usually follows within one or two working days after verification."
+    },
+    {
+      "question": "When do I get the Upstox referral reward?",
+      "answer": "Once your account is active and you've completed the qualifying step in the current offer. You can track it in the app's Refer & Earn section."
+    },
+    {
+      "question": "Can I open Upstox if my PAN isn't linked with Aadhaar?",
+      "answer": "No. PAN–Aadhaar linking is required for new investment accounts in India. Link them on the Income Tax e-filing portal first."
+    },
+    {
+      "question": "Upstox or Groww, which should I choose?",
+      "answer": "Both are SEBI-registered brokers with similar core features. Groww is often preferred for simple investing and mutual funds, and Upstox for its trading tools and charts. You can open both and claim each new-user offer."
+    },
+    {
+      "question": "Is a referral link safe?",
+      "answer": "Yes. It only records who referred you before you sign up on Upstox's official app or website. Never share your OTPs or password with anyone."
     }
   ],
   "last_verified": "2026-11-03",

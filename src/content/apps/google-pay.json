@@ -1,0 +1,97 @@
+{
+  "name": "Google Pay",
+  "category": "payments",
+  "tab": "new",
+  "order": 3,
+  "published": true,
+  "icon": "",
+  "icon_color": "#1a73e8",
+  "icon_text": "GPAY",
+  "bonus_line": "Rewards on first payment",
+  "info_line": "Scratch card rewards",
+  "referral_url": "https://gpay.app.goo.gl/invite-eh9y70w",
+  "referral_code": "",
+  "download_label": "DOWNLOAD GOOGLE PAY APP",
+  "stats": [
+    {
+      "value": "Free",
+      "label": "Price"
+    },
+    {
+      "value": "Bonus",
+      "label": "On sign-up"
+    },
+    {
+      "value": "Android",
+      "label": "& iOS"
+    },
+    {
+      "value": "New",
+      "label": "Users only"
+    }
+  ],
+  "intro": "Google Pay is Google's UPI payments app for India. It launched in 2017 as Tez and was renamed Google Pay in 2018. You can use it to send money to contacts, pay at shops by scanning QR codes, recharge your phone and pay bills, all straight from your bank account. Google Pay has run invite programmes where new users who join through a friend's invite link get rewards after their first payment. Here's how to join correctly so the reward is tracked.",
+  "steps": [
+    "Tap the Download button on this page. It opens Google Pay's invite link.",
+    "Install Google Pay from that page on a phone where it hasn't been used before.",
+    "Choose your language, then sign in with the mobile number that is linked to your bank account.",
+    "Add your bank account and set a UPI PIN using your debit card details or Aadhaar-based verification.",
+    "Make the qualifying payment shown in the invite offer, usually your first UPI payment to someone or a merchant.",
+    "Check the Rewards section for your reward (scratch card or cashback)."
+  ],
+  "sections": [
+    {
+      "title": "What you can do on Google Pay",
+      "icon": "grid",
+      "body": "- **Pay contacts:** send money to anyone with a UPI ID or phone number.\n- **Scan & pay:** pay at any shop that shows a UPI QR code.\n- **Bills and recharges:** mobile, DTH, electricity, broadband, gas, FASTag and more.\n- **UPI Lite:** quick small payments without entering your UPI PIN each time.\n- **RuPay credit card on UPI:** link an eligible RuPay credit card and pay by scanning UPI QR codes.\n- **Rewards:** scratch cards and offers on eligible payments."
+    },
+    {
+      "title": "Before you start",
+      "icon": "check",
+      "body": "1. Your **SIM must be in the phone** you're installing Google Pay on. UPI verifies your number by sending an SMS from that SIM.\n2. The number must be **registered with your bank account**.\n3. Keep your **debit card** (last 6 digits and expiry) or Aadhaar handy to set the UPI PIN.\n4. Use your own name and bank account. Rewards on accounts set up for someone else can be held back."
+    },
+    {
+      "title": "Invite reward not showing? Check these",
+      "icon": "alert",
+      "body": "- **Installed without the invite link:** the referral is only tracked if you open the invite link first.\n- **Already used Google Pay:** invite rewards are for new users. A number or bank account used on Google Pay before won't qualify.\n- **Payment didn't qualify:** check the minimum amount and whether it had to be a payment to a person or to a merchant.\n- **Offer ended:** Google changes and pauses invite programmes. The current terms in the app are what count.\n- **Still missing?** Go to *Profile → Help & feedback* in the app."
+    },
+    {
+      "title": "Is Google Pay safe?",
+      "icon": "shield",
+      "body": "Google Pay is Google's official app. Every payment needs your UPI PIN, and you can also lock the app with your phone's screen lock.\n\n- **Never share your UPI PIN** with anyone.\n- **Receiving money never needs your PIN.** If someone sends you a \"collect request\" saying you'll *receive* money, it's a scam.\n- Google Pay support will never ask you to install a screen-sharing app."
+    }
+  ],
+  "terms": [
+    "The invite reward is for new Google Pay users only, with one reward per person, number and bank account.",
+    "You must join through the invite link and make the qualifying payment within the time shown in the app.",
+    "Google decides the reward and eligibility and may change, pause or end invite programmes at any time.",
+    "Check the current terms in the Google Pay app before you start."
+  ],
+  "faqs": [
+    {
+      "question": "How does the Google Pay invite reward work?",
+      "answer": "When a new user joins Google Pay through an invite link and makes the qualifying first payment, Google may reward the new user and the person who invited them. The exact reward and rules are shown in the app."
+    },
+    {
+      "question": "Why didn't I get the Google Pay invite reward?",
+      "answer": "The usual reasons are installing without the invite link, having used Google Pay before, a payment that didn't qualify, or the offer having ended. Check the Rewards section and the offer terms in the app."
+    },
+    {
+      "question": "Can I use Google Pay without a debit card?",
+      "answer": "Yes, many banks let you set your UPI PIN with Aadhaar-based verification instead of a debit card."
+    },
+    {
+      "question": "Does Google Pay charge for UPI payments?",
+      "answer": "Regular UPI payments to people and shops from your bank account are free for users. Some bill payments or card payments may show a fee in the app before you pay."
+    },
+    {
+      "question": "What is UPI Lite on Google Pay?",
+      "answer": "UPI Lite is a small on-device balance for quick, low-value payments without entering your UPI PIN every time. It's useful for daily small purchases."
+    },
+    {
+      "question": "Is the invite link safe?",
+      "answer": "Yes. It only opens the official Google Pay app or store page and records who invited you. Never share your UPI PIN or OTP with anyone."
+    }
+  ],
+  "last_verified": "2026-11-03"
+}

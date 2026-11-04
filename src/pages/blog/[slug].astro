@@ -4,7 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AppCard from '../../components/AppCard.astro';
 import Icon from '../../components/Icon.astro';
 import { getEntries, render } from 'astro:content';
-import { getSite, getHome, getPosts, postPath, absoluteUrl, withBase, formatDate, type Post } from '../../lib/content';
+import { getSite, getHome, getPosts, postPath, absoluteUrl, withBase, formatDate, pageTitle, type Post } from '../../lib/content';
 import { articleSchema, breadcrumbSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
@@ -24,7 +24,7 @@ const crumbs = [
 ];
 ---
 <BaseLayout
-  title={`${d.title} | ${site.name}`}
+  title={pageTitle(d.title, site.name)}
   description={d.description}
   path={path}
   ogType="article"
