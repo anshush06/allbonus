@@ -36,6 +36,9 @@ const buildConfig = (siteUrl: string) => ({
     // 'oauth' only = hide the "Sign In Using Access Token" button.
     base_url: new URL(siteUrl).origin, auth_endpoint: 'api/auth', auth_methods: ['oauth'],
   },
+  // Leave empty optional fields out of saved files. Without this, an empty
+  // optional object (e.g. SEO) is written as null and fails the content schema.
+  output: { omit_empty_optional_fields: true },
   media_folder: 'public/images/uploads',
   public_folder: '/images/uploads',
   site_url: siteUrl,
