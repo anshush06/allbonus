@@ -224,3 +224,40 @@ the offer wording on each app's official referral terms.
 
 **Verified:** 18 pages built; no `example.com`, `your-channel` or
 `allbonus.com` remains in the HTML output.
+
+## 2026-11-04 — IndexNow and 7 long-tail guides
+
+**Purpose:** Get more search traffic. New guides target specific long-tail
+searches, and IndexNow tells Bing, Yandex and other engines within a day
+when pages change. Bing also powers ChatGPT search, DuckDuckGo and Yahoo.
+
+**IndexNow:**
+- `public/indexnow.txt` holds the key. It is public by design.
+- `scripts/indexnow.mjs` compares the new `dist/sitemap-0.xml` with the
+  sitemap that was live before the deploy, and POSTs only new or changed URLs
+  to `api.indexnow.org`. With no previous sitemap it submits everything.
+- Deploy workflow: save the live sitemap, deploy, then ping. The ping step is
+  `continue-on-error`, so a failed ping shows as a warning without failing an
+  already-live deploy.
+- Initial full submission done manually after the first deploy.
+
+**Guides** (`src/content/posts/`, 690–930 words each, internally linked to app
+pages and each other):
+- paytm-refer-and-win-not-working
+- google-pay-invite-reward-not-received
+- groww-account-activation-pending
+- what-is-upi-lite
+- set-upi-pin-without-debit-card
+- pan-aadhaar-link-status-check
+- groww-vs-upstox-for-beginners
+
+Facts were checked against sources: UPI Lite limits of ₹1,000 per payment and
+₹5,000 balance (NPCI, Feb 2025); PAN–Aadhaar late fee ₹1,000 under s.234H; and
+Google Pay, Groww and Upstox referral rules from their help pages. No charges
+or reward amounts were stated where they vary.
+
+**Verified:**
+- 25 pages built; 0 type errors.
+- No duplicate titles.
+- All internal links resolve.
+- Sitemap has 22 URLs.
