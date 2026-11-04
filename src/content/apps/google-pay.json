@@ -4,13 +4,13 @@
   "tab": "new",
   "order": 3,
   "published": true,
-  "icon": "",
+  "referral_url": "https://gpay.app.goo.gl/invite-eh9y70w",
+  "referral_code": "",
+  "icon": "/images/uploads/images.jpg",
   "icon_color": "#1a73e8",
   "icon_text": "GPAY",
   "bonus_line": "Rewards on first payment",
   "info_line": "Scratch card rewards",
-  "referral_url": "https://gpay.app.goo.gl/invite-eh9y70w",
-  "referral_code": "",
   "download_label": "DOWNLOAD GOOGLE PAY APP",
   "stats": [
     {
@@ -93,5 +93,6 @@
       "answer": "Yes. It only opens the official Google Pay app or store page and records who invited you. Never share your UPI PIN or OTP with anyone."
     }
   ],
-  "last_verified": "2026-11-03"
+  "last_verified": "2026-11-03",
+  "seo": null
 }
