@@ -55,5 +55,10 @@ jobs:
           '
           npx wrangler pages secret bulk "$RUNNER_TEMP/admin-secrets.json" --project-name "$PROJECT"
           rm "$RUNNER_TEMP/admin-secrets.json"
+      - name: Save the currently live sitemap (for IndexNow diff)
+        run: curl -fsS "$(node -p "require('./src/content/settings/site.json').url")/sitemap-0.xml" -o "$RUNNER_TEMP/prev-sitemap.xml" || true
       - name: Deploy
         run: npx wrangler pages deploy dist --project-name "$PROJECT" --branch main --commit-dirty=true
+      - name: Notify search engines of changed pages (IndexNow)
+        continue-on-error: true # the site is already live; a failed ping shows as a warning only
+        run: node scripts/indexnow.mjs "$RUNNER_TEMP/prev-sitemap.xml"
