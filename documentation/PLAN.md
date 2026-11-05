@@ -58,8 +58,8 @@ links. No gambling or rummy apps.
 
 | # | Task | Who | Status |
 |---|---|---|---|
-| 1 | Test admin login and one save (change a word, check the site after about 2 min) | You | ⏳ |
-| 2 | Choose a **broad** domain name (it will carry future sites too) and buy the `.com` at Cloudflare → Domain Registration; **turn on auto-renew** | You | ⏳ |
+| 1 | Test admin login and one save (change a word, check the site after about 2 min) | You | ✅ |
+| 2 | Choose a **broad** domain name (it will carry future sites too) and buy the `.com` at Cloudflare → Domain Registration; **turn on auto-renew**. Suggested `allbonushub.com` (free on 5 Nov) | You | ⏳ |
 | 3 | Connect the domain; move canonical, sitemap and admin login to it; **301 redirect** `allbonus.pages.dev` to it | Claude | waiting on #2 |
 | 4 | Add the new domain to Search Console (verification code, then submit `sitemap-index.xml`) | You + Claude | waiting on #3 |
 | 5 | Create GA4 property, send the Measurement ID (`G-…`) | You | ⏳ |
@@ -67,7 +67,7 @@ links. No gambling or rummy apps.
 | 7 | Bonus lines rewritten from the apps' official referral terms (no unverifiable amounts); Upstox **hidden** until its referral link is added; Telegram button **off** until a channel exists; wrong `hello@allbonus.com` (someone else's domain) removed | Claude | ✅ 4 Nov |
 | 7b | Add Upstox referral link, then tick *Show on website* · Telegram channel link, then enable the floating button · public contact email · app icons for Paytm/Groww | You | ⏳ |
 | 7a | Unique 800+ word content for each app page; 2 long-tail blog posts; title/description lengths fixed | Claude | ✅ done 4 Nov |
-| 8 | Search Console → URL Inspection → **Request indexing** for each app page (about 10/day), on the **new domain** | You | after #3 and #7 |
+| 8 | Search Console → URL Inspection → **Request indexing** for each page (about 10/day) | You | ✅ 5 Nov on `pages.dev`; repeat on the new domain after #3 |
 | 9 | Promote: Telegram, WhatsApp, YouTube, Instagram, Quora answers (links from other places help ranking) | You | ongoing |
 | 10 | Optional: Cloudflare Web Analytics (free visitor counts, no code) | You | optional |
 | 11 | Optional: free email `contact@yourdomain.com` via Cloudflare Email Routing (forwards to Gmail) | Claude | after #2 |
