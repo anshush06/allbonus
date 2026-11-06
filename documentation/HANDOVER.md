@@ -37,7 +37,7 @@ and the build fails on a shallow clone.
 ## State on 5 Nov 2026
 
 - Live pages: home, 2 categories (Payments, Investing), 3 apps (Paytm,
-  Google Pay, Groww), 10 guides, about/contact/disclaimer/privacy. 21 URLs in
+  Google Pay, Groww), 12 guides, about/contact/disclaimer/privacy. 23 URLs in
   the sitemap.
 - Upstox exists but is hidden (`published: false`) until its real referral
   link is added.

@@ -261,3 +261,31 @@ or reward amounts were stated where they vary.
 - No duplicate titles.
 - All internal links resolve.
 - Sitemap has 22 URLs.
+
+## 2026-11-05 — 2 more long-tail guides
+
+**Purpose:** More search traffic from questions that top results answer
+vaguely, linking readers to the Paytm and Google Pay pages.
+
+**Guides:**
+- `upi-payment-failed-money-debited`: RBI's failed-transaction rule
+  (RBI/2019-20/67): transfers reversed by T+1 and merchant payments by T+5,
+  calendar days, with ₹100 a day credited by the bank without a complaint.
+  Complaint order is app, then bank, then the RBI Ombudsman (Integrated
+  Ombudsman Scheme 2026: 90 days). Includes a fake-helpline scam warning.
+- `link-rupay-credit-card-to-upi`: Google Pay and Paytm steps. Payments to
+  merchants only; no P2P or personal-QR (P2PM) payments. Covers limits, fees
+  without invented numbers, and why linking fails.
+
+Written by one agent and reviewed by another, which checked the facts against
+RBI, NPCI, Google Pay, Paytm and Kotak pages. The review found 6 factual
+problems, all fixed before publishing.
+
+**Verified:**
+- 27 pages built.
+- Both guides are in the sitemap.
+- All internal links resolve.
+- Descriptions are 149 and 137 characters.
+
+`astro check` currently fails on `main` because `@types/node` is not
+installed. This is not caused by these guides.
