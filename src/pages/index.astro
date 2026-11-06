@@ -4,6 +4,7 @@ import AppCard from '../components/AppCard.astro';
 import ContentCard from '../components/ContentCard.astro';
 import Faq from '../components/Faq.astro';
 import Icon from '../components/Icon.astro';
+import Queries from '../components/Queries.astro';
 import { getSite, getHome, getApps, assertTopLevelSlugsUnique } from '../lib/content';
 import { faqSchema } from '../lib/schema';
 
@@ -11,6 +12,7 @@ await assertTopLevelSlugsUnique();
 const site = await getSite();
 const home = await getHome();
 const apps = await getApps();
+const queries = home.queries?.items.length ? home.queries : undefined;
 const tabs = [
   { key: 'new', label: home.tabs.new_label, icon: home.tabs.new_icon, apps: apps.filter((a) => a.data.tab === 'new') },
   { key: 'other', label: home.tabs.other_label, icon: home.tabs.other_icon, apps: apps.filter((a) => a.data.tab === 'other') },
@@ -42,7 +44,12 @@ const tabs = [
     ))}
   </section>
 
-  {home.sections.map((s) => <ContentCard title={s.title} icon={s.icon} body={s.body} />)}
+  {home.sections.map((s, i) => (
+    <ContentCard title={s.title} icon={s.icon} body={s.body}>
+      {i === 0 && queries && <Queries title={queries.title} items={queries.items} />}
+    </ContentCard>
+  ))}
+  {home.sections.length === 0 && queries && <section class="card"><Queries title={queries.title} items={queries.items} /></section>}
   <Faq title={home.faq.title} items={home.faq.items} />
 </BaseLayout>
 

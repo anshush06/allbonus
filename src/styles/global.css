@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Layout modelled on the reference site: a centred column (full width on
-   phones, up to 1280px on desktop), gradient
+   phones, up to 1536px on desktop), gradient
    header, icon nav row, numbered app list and white content cards.
    Colours (--header-from, --accent, ...) are injected from site settings in
    BaseLayout so they can be changed from the admin panel. */
@@ -18,7 +18,7 @@
 }
 
 @layer components {
-  .shell { @apply mx-auto min-h-screen max-w-[1280px] bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)]; }
+  .shell { @apply mx-auto min-h-screen max-w-[1536px] bg-white shadow-[0_0_20px_rgba(0,0,0,0.1)]; }
 
   /* Header */
   .site-header { @apply flex items-center justify-between gap-3 px-4 py-3.5 text-white sm:px-5 sm:py-4;
@@ -100,6 +100,18 @@
 
   .float-btn { @apply fixed bottom-5 right-5 z-50 flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#0088cc] text-white shadow-lg hover:scale-105; }
 }
+
+/* Homepage "Queries" row: horizontally scrolling pill links with a slim visible scrollbar. */
+.queries-title { @apply mb-2 mt-5 text-lg font-semibold text-slate-900; }
+.keyword-cloud { @apply flex min-w-0 max-w-full gap-2 overflow-x-auto rounded-lg border border-dashed px-2.5 py-4;
+  background: #f8fafc; border-color: #cbd5f5; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin; scrollbar-color: #cbd5f5 #e0e0e0; }
+.keyword-cloud::-webkit-scrollbar { height: 6px; }
+.keyword-cloud::-webkit-scrollbar-track { background: #e0e0e0; border-radius: 10px; }
+.keyword-cloud::-webkit-scrollbar-thumb { background: #cbd5f5; border-radius: 10px; }
+.keyword-cloud .query-badge { @apply inline-block shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-white no-underline;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+.keyword-cloud .query-badge:hover { background: linear-gradient(135deg, #4338ca, #6d28d9); }
 
 /* Markdown rendered from the admin (content cards, pages, posts). */
 .prose-content { @apply leading-relaxed text-slate-700; }

@@ -35,6 +35,24 @@
       "body": "AllBonus was started to make referral offers simple. Instead of searching across many sites, you'll find each app's current offer, the exact steps to claim it and the terms in one place. We list only legal apps — no betting, gambling or real-money games."
     }
   ],
+  "queries": {
+    "title": "Queries",
+    "items": [
+      { "label": "Paytm referral bonus", "href": "/payments/paytm/" },
+      { "label": "Google Pay invite reward", "href": "/payments/google-pay/" },
+      { "label": "Groww referral reward", "href": "/investing/groww/" },
+      { "label": "Referral bonus not received", "href": "/blog/referral-bonus-not-received/" },
+      { "label": "Paytm Refer and Win not working", "href": "/blog/paytm-refer-and-win-not-working/" },
+      { "label": "Google Pay reward not received", "href": "/blog/google-pay-invite-reward-not-received/" },
+      { "label": "Groww account activation pending", "href": "/blog/groww-account-activation-pending/" },
+      { "label": "Open demat account online", "href": "/blog/open-demat-account-online/" },
+      { "label": "Groww vs Upstox", "href": "/blog/groww-vs-upstox-for-beginners/" },
+      { "label": "What is UPI Lite", "href": "/blog/what-is-upi-lite/" },
+      { "label": "Set UPI PIN without debit card", "href": "/blog/set-upi-pin-without-debit-card/" },
+      { "label": "PAN Aadhaar link status", "href": "/blog/pan-aadhaar-link-status-check/" },
+      { "label": "How referral bonuses work", "href": "/blog/how-referral-bonuses-work/" }
+    ]
+  },
   "faq": {
     "title": "Frequently Asked Questions",
     "items": [

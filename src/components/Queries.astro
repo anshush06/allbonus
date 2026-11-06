@@ -1,0 +1,11 @@
+---
+import { withBase } from '../lib/content';
+interface Props { title: string; items: { label: string; href: string }[] }
+const { title, items } = Astro.props;
+---
+<div class="queries">
+  <h3 class="queries-title">{title}</h3>
+  <div class="keyword-cloud">
+    {items.map((q) => <a class="query-badge" href={withBase(q.href)}>{q.label}</a>)}
+  </div>
+</div>

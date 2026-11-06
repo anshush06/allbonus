@@ -89,6 +89,13 @@ const buildConfig = (siteUrl: string) => ({
             },
             str('card_button_label', 'Card button text'),
             sectionList('sections', 'Content sections below the list'),
+            {
+              name: 'queries', label: 'Queries (search links)', widget: 'object', required: false,
+              fields: [
+                str('title', 'Heading'),
+                { name: 'items', label: 'Links', widget: 'list', label_singular: 'link', summary: '{{fields.label}}', fields: link },
+              ],
+            },
             { name: 'faq', label: 'FAQ', widget: 'object', fields: [str('title', 'Heading'), faqList('items', 'Questions')] },
           ],
         },

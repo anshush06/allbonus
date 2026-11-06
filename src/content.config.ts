@@ -64,6 +64,7 @@ const home = defineCollection({
     }),
     card_button_label: z.string(),
     sections: z.array(section),
+    queries: z.object({ title: z.string(), items: z.array(z.object({ label: z.string(), href: z.string() })) }).optional(),
     faq: z.object({ title: z.string(), items: z.array(faq) }),
   }),
 });
