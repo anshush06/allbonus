@@ -102,13 +102,14 @@
 }
 
 /* Homepage "Queries" row: horizontally scrolling pill links with a slim visible scrollbar. */
-.queries-title { @apply mb-2 mt-5 text-lg font-semibold text-slate-900; }
-.keyword-cloud { @apply flex min-w-0 max-w-full gap-2 overflow-x-auto rounded-lg border border-dashed px-2.5 py-4;
-  background: #f8fafc; border-color: #cbd5f5; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin; scrollbar-color: #cbd5f5 #e0e0e0; }
+.queries > .queries-title { @apply mb-2 mt-5 text-lg font-semibold text-slate-900; }
+.keyword-cloud { @apply flex gap-2 overflow-x-auto rounded-lg border border-dashed px-2.5 py-4;
+  background: #f8fafc; border-color: #cbd5f5; scroll-padding-inline: 0.75rem;
+  scrollbar-width: thin; scrollbar-color: #6366f1 #e5e7eb; }
+@media (prefers-reduced-motion: no-preference) { .keyword-cloud { scroll-behavior: smooth; } }
 .keyword-cloud::-webkit-scrollbar { height: 6px; }
-.keyword-cloud::-webkit-scrollbar-track { background: #e0e0e0; border-radius: 10px; }
-.keyword-cloud::-webkit-scrollbar-thumb { background: #cbd5f5; border-radius: 10px; }
+.keyword-cloud::-webkit-scrollbar-track { background: #e5e7eb; border-radius: 10px; }
+.keyword-cloud::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
 .keyword-cloud .query-badge { @apply inline-block shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium text-white no-underline;
   background: linear-gradient(135deg, #4f46e5, #7c3aed); }
 .keyword-cloud .query-badge:hover { background: linear-gradient(135deg, #4338ca, #6d28d9); }

@@ -49,7 +49,6 @@ const tabs = [
       {i === 0 && queries && <Queries title={queries.title} items={queries.items} />}
     </ContentCard>
   ))}
-  {home.sections.length === 0 && queries && <section class="card"><Queries title={queries.title} items={queries.items} /></section>}
   <Faq title={home.faq.title} items={home.faq.items} />
 </BaseLayout>
 
