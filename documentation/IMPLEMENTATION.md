@@ -289,3 +289,34 @@ problems, all fixed before publishing.
 
 `astro check` currently fails on `main` because `@types/node` is not
 installed. This is not caused by these guides.
+
+## 2026-11-06 — Wider desktop column and "Queries" link row
+
+**Purpose:** Match the reference site on large monitors, and add the
+reference's horizontally scrolling "Queries" row.
+
+**What was done:**
+- **Wider column:** `.shell` max width goes from 1280px to 1536px, the
+  reference's width at 1920px screens. Phones are unchanged.
+- **Queries row** (`src/components/Queries.astro`): a row of pill links that
+  scrolls sideways with a thin visible scrollbar, at the end of the first
+  homepage content card. It is edited in the admin under Homepage → Queries,
+  in `home.json → queries`.
+- **Not copied from the reference:** its badges are about 60 near-duplicate
+  keyword spans with no links, which is keyword stuffing under Google's spam
+  policy. Each of our badges is a real search phrase linking to one of our
+  pages: 15 in total, covering 3 apps and 12 guides.
+- **Schema:** `queries` is `.nullish()`, like `seo`, so an admin save that
+  writes `null` can't break the build.
+- `ContentCard` now renders `body` followed by any slot content.
+
+**Verified:**
+- 27 pages built; 15 badges, all pointing to existing pages.
+- An independent review measured no page-level horizontal scroll at 320 and
+  390px.
+- White text on the badges passes AA contrast (5.7–6.3:1).
+
+**Known trade-off:** at 1536px, paragraphs in content cards run to about 200
+characters per line, longer than is comfortable to read. This matches the
+reference. Capping text width (e.g. `max-width: 75ch` on `.prose-content`
+paragraphs) is the fix if it becomes a problem.

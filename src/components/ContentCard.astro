@@ -7,5 +7,5 @@ const { title, icon = 'info', body } = Astro.props;
 ---
 <section class="card">
   <h2 class="card-title"><Icon name={icon} size={18} />{title}</h2>
-  {body ? <div class="prose-content" set:html={md(body)} /> : <div class="prose-content"><slot /></div>}
+  <div class="prose-content">{body && <Fragment set:html={md(body)} />}<slot /></div>
 </section>
